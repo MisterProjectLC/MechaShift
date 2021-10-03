@@ -1,18 +1,18 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Scenes/Obstacles/Car.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Obstacles/Enemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Obstacles/BigBuilding.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Obstacles/SmallBuilding.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Obstacles/Truck.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/StageElements/Car.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/StageElements/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/StageElements/BigBuilding.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/StageElements/SmallBuilding.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/StageElements/Truck.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Fonts/Stage.tres" type="DynamicFont" id=6]
-[ext_resource path="res://Scenes/Obstacles/Bus.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Obstacles/Outdoor.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Obstacles/Building.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/StageElements/Bus.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/StageElements/Outdoor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/StageElements/Building.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Stages/Stage0.gd" type="Script" id=10]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 219.112, 2000 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 300, 1000 )
 
 [node name="Stage0" type="Node2D"]
 script = ExtResource( 10 )
@@ -130,7 +130,7 @@ position = Vector2( 4087.83, -1080.55 )
 position = Vector2( 6749.56, -1295.17 )
 
 [node name="Bus3" parent="Objects" instance=ExtResource( 7 )]
-position = Vector2( 9167.95, -1409.65 )
+position = Vector2( 9066.24, -1519.84 )
 
 [node name="Bus4" parent="Objects" instance=ExtResource( 7 )]
 position = Vector2( 22081.3, -1219.71 )
@@ -151,7 +151,7 @@ position = Vector2( 7433.6, -1133.22 )
 position = Vector2( 4876.7, -1664.97 )
 
 [node name="Outdoor3" parent="Objects" instance=ExtResource( 8 )]
-position = Vector2( 9463.29, -832.653 )
+position = Vector2( 9471.76, -1040.31 )
 
 [node name="Outdoor4" parent="Objects" instance=ExtResource( 8 )]
 position = Vector2( 13577.8, -604.068 )
@@ -163,19 +163,22 @@ position = Vector2( 12329.2, -1076.9 )
 position = Vector2( 17183.5, -500.568 )
 
 [node name="Outdoor7" parent="Objects" instance=ExtResource( 8 )]
-position = Vector2( 29119.9, 84.8171 )
+position = Vector2( 29125.5, 169.67 )
 
 [node name="Outdoor8" parent="Objects" instance=ExtResource( 8 )]
-position = Vector2( 29167, -605.548 )
+position = Vector2( 29128.2, -476.248 )
 
 [node name="Outdoor9" parent="Objects" instance=ExtResource( 8 )]
-position = Vector2( 29152.8, -1247.91 )
+position = Vector2( 29133, -1124.96 )
 
 [node name="Enemy" parent="Objects" instance=ExtResource( 2 )]
-position = Vector2( 9435.83, -373.108 )
+position = Vector2( 9453.65, -469.325 )
 
 [node name="Enemy2" parent="Objects" instance=ExtResource( 2 )]
-position = Vector2( 22384.3, -98.3962 )
+position = Vector2( 22308.7, -113.515 )
+
+[node name="Enemy3" parent="Objects" instance=ExtResource( 2 )]
+position = Vector2( 755.482, -253.015 )
 
 [node name="Tutorial Signs" type="Control" parent="."]
 margin_right = 40.0
@@ -282,9 +285,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="ActivateCooldowns" type="Area2D" parent="."]
 position = Vector2( 15296.1, -553.08 )
+collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateCooldowns"]
 position = Vector2( 287.54, -1191.56 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
+
+[node name="EndStage" type="Area2D" parent="."]
+position = Vector2( 27616.1, 902.92 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndStage"]
+position = Vector2( 1059.8, -1395.07 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="ActivateCooldowns" to="." method="_on_ActivateCooldowns_body_entered"]
+[connection signal="body_entered" from="EndStage" to="." method="_on_EndStage_body_entered"]

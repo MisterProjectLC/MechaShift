@@ -19,6 +19,9 @@ onready var Bars = {Global.HOOK:get_node(HookBar), Global.ROCKET:get_node(Rocket
 func _process(delta):
 	if Input.is_action_just_pressed("toggle_controls"):
 		$Controls.visible = !$Controls.visible
+	
+	if Input.is_action_just_pressed("ui_cancel"):
+		$Pause/PauseMenu.toggle_pause()
 
 
 func set_cooldown(type, amount):

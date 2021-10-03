@@ -150,8 +150,10 @@ func control_antigrav():
 
 
 func control_bounce():
-	if Input.is_action_just_pressed("toggle_bounce"):
+	if Input.is_action_just_pressed("toggle_bounce") and not CooldownManager.get_overload(Global.BOUNCE):
 		set_bouncy(!_bouncy)
+
+
 
 func set_bouncy(value):
 	_bouncy = value
@@ -172,6 +174,7 @@ func control_teleport():
 	if Input.is_action_just_pressed("teleport") and not CooldownManager.get_overload(Global.TELEPORT):
 		_teleport_pos = get_global_mouse_position()
 		increase_cooldown(Global.TELEPORT)
+		Wheel.linear_velocity = Vector2.ZERO
 		$AnimationPlayer.play("TeleportBegin")
 
 
@@ -199,8 +202,6 @@ func _on_Wheel_on_collision(collision_normal):
 		if velocity_projection > 0:
 			last_velocity -= last_velocity.project(-bounce_direction)
 			Wheel.linear_velocity = last_velocity + bounce_direction * min(1000, velocity_projection * 1.3)
-			if velocity_projection * 1.3 > 1:
-				increase_cooldown(Global.BOUNCE)
 
 
 func increase_cooldown(type):
@@ -221,3 +222,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "TeleportBegin":
 		Wheel.global_position = _teleport_pos
 		$AnimationPlayer.play("TeleportEnd")
+
+
+func _on_Timer_timeout():
+	if _bouncy:
+		increase_cooldown(Global.BOUNCE)

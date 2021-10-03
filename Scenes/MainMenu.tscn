@@ -8,7 +8,24 @@
 [ext_resource path="res://Assets/Art/Menu/MenuButtonHover.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Fonts/UI.tres" type="DynamicFont" id=7]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=9]
+resource_name = "Hover"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 163.0, 163.0 ]
+}
+
+[sub_resource type="Animation" id=8]
 resource_name = "Hover"
 length = 0.5
 loop = true
@@ -60,23 +77,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-resource_name = "Hover"
-length = 0.5
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:margin_left")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 163.0, 163.0 ]
-}
-
-[sub_resource type="Animation" id=5]
 resource_name = "Blackout"
 length = 0.3
 tracks/0/type = "value"
@@ -92,7 +92,7 @@ tracks/0/keys = {
 "values": [ Color( 0.0392157, 0.164706, 0.2, 0 ), Color( 0.0392157, 0.164706, 0.2, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "OptionsClose"
 length = 0.2
 tracks/0/type = "value"
@@ -120,7 +120,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Options:visible")
@@ -147,7 +147,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Options:visible")
@@ -209,7 +209,7 @@ texture_hover = ExtResource( 6 )
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Menu/Play"]
-anims/Hover = SubResource( 1 )
+anims/Hover = SubResource( 9 )
 
 [node name="Tween" type="Tween" parent="Menu/Play"]
 
@@ -238,7 +238,7 @@ texture_hover = ExtResource( 6 )
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Menu/Options"]
-anims/Hover = SubResource( 2 )
+anims/Hover = SubResource( 8 )
 
 [node name="Tween" type="Tween" parent="Menu/Options"]
 
@@ -267,7 +267,7 @@ texture_hover = ExtResource( 6 )
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Menu/Quit"]
-anims/Hover = SubResource( 3 )
+anims/Hover = SubResource( 2 )
 
 [node name="Tween" type="Tween" parent="Menu/Quit"]
 
@@ -368,7 +368,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Options/Close"]
-anims/Hover = SubResource( 4 )
+anims/Hover = SubResource( 3 )
 
 [node name="Tween" type="Tween" parent="Options/Close"]
 
@@ -385,10 +385,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Blackout = SubResource( 5 )
-anims/OptionsClose = SubResource( 6 )
-anims/OptionsOpen = SubResource( 7 )
-anims/OptionsOpenNormal = SubResource( 8 )
+anims/Blackout = SubResource( 4 )
+anims/OptionsClose = SubResource( 5 )
+anims/OptionsOpen = SubResource( 6 )
+anims/OptionsOpenNormal = SubResource( 7 )
 
 [node name="Blackout" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -399,5 +399,7 @@ color = Color( 0.0392157, 0.164706, 0.2, 0 )
 [connection signal="button_up" from="Menu/Play" to="." method="_on_Play_button_up"]
 [connection signal="button_up" from="Menu/Options" to="." method="_on_Options_button_up"]
 [connection signal="button_up" from="Menu/Quit" to="." method="_on_Quit_button_up"]
+[connection signal="value_changed" from="Options/Sound" to="." method="_on_Sound_value_changed"]
+[connection signal="value_changed" from="Options/Music" to="." method="_on_Music_value_changed"]
 [connection signal="button_up" from="Options/Close" to="." method="_on_Close_button_up"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
