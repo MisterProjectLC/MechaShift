@@ -1,77 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Stage1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Robot/Robot.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=3]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 385.518, 109.611 )
+[ext_resource path="res://Scenes/Main.gd" type="Script" id=5]
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 5 )
 
-[node name="GroundTest" type="StaticBody2D" parent="."]
-position = Vector2( 6.72705, 77.3625 )
-collision_layer = 4
-collision_mask = 0
+[node name="Stage1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -5.03967 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundTest"]
-position = Vector2( 443.281, 422.996 )
-shape = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite" type="Sprite" parent="GroundTest"]
-position = Vector2( 442.448, 423.667 )
-scale = Vector2( 12.0173, 3.45539 )
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="GroundTest2" type="StaticBody2D" parent="."]
-position = Vector2( -1.28198, -395.171 )
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundTest2"]
-position = Vector2( 443.281, 422.996 )
-shape = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite" type="Sprite" parent="GroundTest2"]
-position = Vector2( 442.448, 423.667 )
-scale = Vector2( 12.0173, 3.45539 )
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="GroundTest3" type="StaticBody2D" parent="."]
-position = Vector2( 739.552, -163.345 )
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundTest3"]
-position = Vector2( 443.281, 422.996 )
-shape = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite" type="Sprite" parent="GroundTest3"]
-position = Vector2( 442.448, 423.667 )
-scale = Vector2( 12.0173, 3.45539 )
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Mecha" parent="." instance=ExtResource( 2 )]
-position = Vector2( 461.161, 214.095 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" parent="CanvasLayer" instance=ExtResource( 3 )]
+[node name="Robot" parent="." instance=ExtResource( 2 )]
+position = Vector2( 140.228, 175.965 )

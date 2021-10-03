@@ -1,9 +1,126 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
 
-[node name="Control" type="Control"]
+[ext_resource path="res://Scenes/UI.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Shaders/cooldown.tres" type="StyleBox" id=2]
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_top = 0.85
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Cooldowns" type="HBoxContainer" parent="Background"]
+anchor_right = 0.35
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = 11.0
+margin_bottom = -11.0
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Column1" type="VBoxContainer" parent="Background/Cooldowns"]
+margin_right = 101.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Hook" type="ProgressBar" parent="Background/Cooldowns/Column1"]
+margin_top = 9.0
+margin_right = 101.0
+margin_bottom = 23.0
+size_flags_horizontal = 7
+size_flags_vertical = 6
+custom_styles/fg = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rocket" type="ProgressBar" parent="Background/Cooldowns/Column1"]
+margin_top = 45.0
+margin_right = 101.0
+margin_bottom = 59.0
+size_flags_horizontal = 7
+size_flags_vertical = 6
+custom_styles/fg = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Column2" type="VBoxContainer" parent="Background/Cooldowns"]
+margin_left = 126.0
+margin_right = 228.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Bounce" type="ProgressBar" parent="Background/Cooldowns/Column2"]
+margin_top = 9.0
+margin_right = 102.0
+margin_bottom = 23.0
+size_flags_horizontal = 7
+size_flags_vertical = 6
+custom_styles/fg = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AntiGravity" type="ProgressBar" parent="Background/Cooldowns/Column2"]
+margin_top = 45.0
+margin_right = 102.0
+margin_bottom = 59.0
+size_flags_horizontal = 7
+size_flags_vertical = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Column3" type="VBoxContainer" parent="Background/Cooldowns"]
+margin_left = 253.0
+margin_right = 355.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Teleport" type="ProgressBar" parent="Background/Cooldowns/Column3"]
+margin_top = 9.0
+margin_right = 102.0
+margin_bottom = 23.0
+size_flags_horizontal = 7
+size_flags_vertical = 6
+custom_styles/fg = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Charge" type="ProgressBar" parent="Background/Cooldowns/Column3"]
+margin_top = 45.0
+margin_right = 102.0
+margin_bottom = 59.0
+size_flags_horizontal = 7
+size_flags_vertical = 6
+__meta__ = {
 "_edit_use_anchors_": false
 }

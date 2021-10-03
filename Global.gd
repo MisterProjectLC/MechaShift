@@ -1,0 +1,4 @@
+extends Node
+
+
+enum {HOOK, ROCKET, BOUNCE, ANTI, TELEPORT, CHARGE}
