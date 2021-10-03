@@ -12,7 +12,7 @@
 [ext_resource path="res://Scenes/Stages/Stage0.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 300, 1000 )
+extents = Vector2( 300, 2000 )
 
 [node name="Stage0" type="Node2D"]
 script = ExtResource( 10 )
@@ -286,12 +286,14 @@ __meta__ = {
 }
 
 [node name="ActivateCooldowns" type="Area2D" parent="."]
-position = Vector2( 15296.1, -553.08 )
+position = Vector2( 15659.6, -919.77 )
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateCooldowns"]
-position = Vector2( 287.54, -1191.56 )
 shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="EndStage" type="Area2D" parent="."]
 position = Vector2( 27616.1, 902.92 )

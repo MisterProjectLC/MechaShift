@@ -11,5 +11,5 @@ func setup(player):
 func _setup():
 	pass
 
-func _on_EndStage_body_entered(body):
+func _on_EndStage_body_entered(_body):
 	emit_signal("stage_ended")

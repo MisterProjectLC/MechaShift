@@ -3,6 +3,8 @@ extends Control
 var flicker = true
 var play = true
 
+func _ready():
+	Transitions.connect("transition_finished", self, "transition_finished")
 
 func _on_Options_button_up():
 	if $Options.visible:
@@ -17,15 +19,15 @@ func _on_Options_button_up():
 
 func _on_Quit_button_up():
 	play = false
-	$AnimationPlayer.play("Blackout")
+	$AnimationPlayer.play("CloseFromLeft")
 
 
 func _on_Close_button_up():
 	$AnimationPlayer.play("OptionsClose")
 
 
-func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "Blackout":
+func transition_finished(anim_name):
+	if anim_name == "CloseFromLeft":
 		if play:
 			get_tree().change_scene("res://Scenes/Main.tscn")
 		else:
