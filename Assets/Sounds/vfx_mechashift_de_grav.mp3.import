@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/vfx_mechashift_de_grav.mp3-e455d63594471ed8e87c89ec14d45ce3.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/vfx_mechashift_de_grav.mp3"
+dest_files=[ "res://.import/vfx_mechashift_de_grav.mp3-e455d63594471ed8e87c89ec14d45ce3.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

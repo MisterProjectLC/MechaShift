@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/vfx_mechashift_charge_dash.mp3-86c8d7f1dca11bba797f7d69a500fec6.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/vfx_mechashift_charge_dash.mp3"
+dest_files=[ "res://.import/vfx_mechashift_charge_dash.mp3-86c8d7f1dca11bba797f7d69a500fec6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

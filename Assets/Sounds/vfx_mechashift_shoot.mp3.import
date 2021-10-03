@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/vfx_mechashift_shoot.mp3-f14e06d3066af594ea3f4247c9e2505c.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/vfx_mechashift_shoot.mp3"
+dest_files=[ "res://.import/vfx_mechashift_shoot.mp3-f14e06d3066af594ea3f4247c9e2505c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

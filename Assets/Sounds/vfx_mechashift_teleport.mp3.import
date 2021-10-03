@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/vfx_mechashift_teleport.mp3-faf2d5cbe937e96d41c52d8a35a3c5b9.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/vfx_mechashift_teleport.mp3"
+dest_files=[ "res://.import/vfx_mechashift_teleport.mp3-faf2d5cbe937e96d41c52d8a35a3c5b9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

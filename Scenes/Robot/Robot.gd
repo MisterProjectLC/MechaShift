@@ -26,7 +26,7 @@ var _stored_charge = 0
 
 # attributes
 export(float) var wheel_velocity = 10
-export(float) var hook_velocity = 800
+export(float) var hook_velocity = 900
 export(float) var hook_force = 50
 export(float) var hook_pull_rope_speed = 100
 export(float) var rocket_velocity = 700
@@ -118,6 +118,7 @@ func set_hook(value):
 			CurrentHook.queue_free()
 		CurrentHook = null
 	elif not CooldownManager.get_overload(Global.HOOK):
+		$sfx_shoot_hook.play(0.0)
 		CurrentHook = hook.instance()
 		add_child(CurrentHook)
 		move_child(CurrentHook, get_parent().get_child_count()-1)
@@ -129,6 +130,7 @@ func set_hook(value):
 
 func control_rocket():
 	if Input.is_action_just_pressed("rocket") and not CooldownManager.get_overload(Global.ROCKET):
+		$sfx_shoot.play(0.0)
 		var new = rocket.instance()
 		add_child(new)
 		move_child(new, get_child_count()-1)
@@ -144,8 +146,10 @@ func control_antigrav():
 		increase_cooldown(Global.ANTI)
 		
 		if Wheel.gravity_scale < 0:
+			$sfx_grav_on.play()
 			$Head.rotation = 180
 		else:
+			$sfx_grav_off.play()
 			$Head.rotation = 0
 
 
@@ -156,9 +160,11 @@ func control_bounce():
 func set_bouncy(value):
 	_bouncy = value
 	if _bouncy:
+		$sfx_bounce_on.play()
 		Wheel.apply_impulse(Vector2.ZERO, Vector2(0, -Wheel.gravity_scale*bounce_inital_push))
 		Wheel.linear_damp = 0
 	else:
+		$sfx_bounce_off.play()
 		Wheel.linear_damp = 0.1
 
 
@@ -170,6 +176,7 @@ func hook_attached():
 
 func control_teleport():
 	if Input.is_action_just_pressed("teleport") and not CooldownManager.get_overload(Global.TELEPORT):
+		$sfx_teleport.play()
 		_teleport_pos = get_global_mouse_position()
 		increase_cooldown(Global.TELEPORT)
 		$AnimationPlayer.play("TeleportBegin")
@@ -179,13 +186,16 @@ func control_charge(delta):
 	if not CooldownManager.get_overload(Global.CHARGE):
 		if Input.is_action_pressed("charge"):
 			if _stored_charge < 100:
+				$sfx_charge.play(1.0)
 				Wheel.linear_velocity -= Wheel.linear_velocity*0.45*delta
 				_stored_charge += delta*charge_load_rate
 				$Pointer/ChargeBar.visible = true
 				$Pointer/ChargeBar.value = _stored_charge
 			
 		elif Input.is_action_just_released("charge"):
+			$sfx_charge.stop()
 			if _stored_charge > 0:
+				$sfx_charge_blast.play()
 				Wheel.apply_impulse(Vector2.ZERO, look_vector*_stored_charge*charge_multiplier)
 				increase_cooldown(Global.CHARGE)
 				_stored_charge = 0
@@ -194,6 +204,7 @@ func control_charge(delta):
 
 func _on_Wheel_on_collision(collision_normal):
 	if _bouncy and not CooldownManager.get_overload(Global.BOUNCE):
+		$sfx_bounce.play()
 		var bounce_direction = collision_normal.normalized()
 		var velocity_projection = last_velocity.dot(-bounce_direction)
 		if velocity_projection > 0:

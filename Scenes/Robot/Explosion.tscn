@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Robot/Explosion.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sounds/vfx_mechashift_boom.mp3" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -33,6 +34,10 @@ tracks/1/keys = {
 "values": [ Vector2( 0.3, 0.3 ), Vector2( 3, 3 ) ]
 }
 
+[sub_resource type="AudioStreamRandomPitch" id=3]
+audio_stream = ExtResource( 3 )
+random_pitch = 1.2
+
 [node name="Explosion" type="Area2D"]
 collision_layer = 0
 collision_mask = 27
@@ -50,6 +55,11 @@ texture = ExtResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Explosion"
 anims/Explosion = SubResource( 2 )
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 3 )
+volume_db = -5.0
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_Explosion_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
