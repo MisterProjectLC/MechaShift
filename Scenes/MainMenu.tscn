@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Fonts/Menu.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/MenuButton.gd" type="Script" id=2]
@@ -43,7 +43,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-resource_name = "Hover"
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -60,7 +59,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-resource_name = "Hover"
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -77,22 +75,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=5]
-resource_name = "Blackout"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/path = NodePath("Blackout:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0.0392157, 0.164706, 0.2, 0 ), Color( 0.0392157, 0.164706, 0.2, 1 ) ]
-}
-
-[sub_resource type="Animation" id=6]
 resource_name = "OptionsClose"
 length = 0.2
 tracks/0/type = "value"
@@ -120,7 +102,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Options:visible")
@@ -147,7 +129,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Options:visible")
@@ -284,7 +266,7 @@ __meta__ = {
 }
 
 [node name="Options" type="Control" parent="."]
-modulate = Color( 1, 1, 1, 0 )
+visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -385,19 +367,13 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Blackout = SubResource( 5 )
-anims/OptionsClose = SubResource( 6 )
-anims/OptionsOpen = SubResource( 7 )
-anims/OptionsOpenNormal = SubResource( 8 )
-
-[node name="Blackout" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-color = Color( 0.0392157, 0.164706, 0.2, 0 )
+anims/OptionsClose = SubResource( 5 )
+anims/OptionsOpen = SubResource( 6 )
+anims/OptionsOpenNormal = SubResource( 7 )
 
 [connection signal="button_up" from="Menu/Play" to="." method="_on_Play_button_up"]
 [connection signal="button_up" from="Menu/Options" to="." method="_on_Options_button_up"]
 [connection signal="button_up" from="Menu/Quit" to="." method="_on_Quit_button_up"]
+[connection signal="value_changed" from="Options/Sound" to="." method="_on_Sound_value_changed"]
+[connection signal="value_changed" from="Options/Music" to="." method="_on_Music_value_changed"]
 [connection signal="button_up" from="Options/Close" to="." method="_on_Close_button_up"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

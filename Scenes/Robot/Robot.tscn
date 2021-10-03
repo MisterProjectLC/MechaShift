@@ -186,5 +186,10 @@ volume_db = -3.0
 stream = ExtResource( 18 )
 volume_db = -8.0
 
+[node name="BouncyTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
 [connection signal="on_collision" from="Wheel" to="." method="_on_Wheel_on_collision"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="BouncyTimer" to="." method="_on_Timer_timeout"]

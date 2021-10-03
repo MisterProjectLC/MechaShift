@@ -1,0 +1,844 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://Assets/Fonts/MILLENNIA.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Art/Menu/MenuButton.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Art/Menu/BounceIcon.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Art/Menu/RocketIcon.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Art/Menu/AntigravIcon.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Art/Menu/TeleportIcon.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Art/Menu/MenuButtonPressed.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Art/Menu/MenuButtonHover.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Art/Menu/ChargeIcon.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Art/Menu/HookIcon.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Fonts/UI.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Assets/Fonts/Menu.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Assets/Shaders/cd_background.tres" type="StyleBox" id=13]
+[ext_resource path="res://Assets/Shaders/overload.tres" type="StyleBox" id=14]
+[ext_resource path="res://Assets/Shaders/cooldown.tres" type="StyleBox" id=15]
+[ext_resource path="res://Scenes/UI/UI.gd" type="Script" id=16]
+[ext_resource path="res://Scenes/PauseMenu.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/MenuButton.gd" type="Script" id=18]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Hover"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 163.0, 163.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Hover"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 163.0, 163.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 163.0, 163.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 163.0, 163.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.509804 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Options:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Options:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Options:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Options:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Options:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Options:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="UI" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+HookBar = NodePath("Background/Cooldowns/Column1/Hook/Progress")
+RocketBar = NodePath("Background/Cooldowns/Column1/Rocket/Progress")
+BounceBar = NodePath("Background/Cooldowns/Column2/Bounce/Progress")
+AntiBar = NodePath("Background/Cooldowns/Column2/Antigrav/Progress")
+TeleportBar = NodePath("Background/Cooldowns/Column3/Teleport/Progress")
+ChargeBar = NodePath("Background/Cooldowns/Column3/Charge/Progress")
+cooldown = ExtResource( 15 )
+overload = ExtResource( 14 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -100.0
+color = Color( 0.0392157, 0.164706, 0.2, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Cooldowns" type="HBoxContainer" parent="Background"]
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 1.0
+margin_right = 550.0
+margin_bottom = -11.0
+custom_constants/separation = 50
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Column1" type="VBoxContainer" parent="Background/Cooldowns"]
+margin_right = 146.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Rocket" type="Control" parent="Background/Cooldowns/Column1"]
+margin_right = 146.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="Progress" type="ProgressBar" parent="Background/Cooldowns/Column1/Rocket"]
+margin_top = 13.0
+margin_right = 119.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_styles/fg = ExtResource( 15 )
+custom_styles/bg = ExtResource( 13 )
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 1, 0.431373, 0.686275, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect7" type="TextureRect" parent="Background/Cooldowns/Column1/Rocket"]
+margin_left = 119.057
+margin_top = 30.3618
+margin_right = 215.057
+margin_bottom = 62.3618
+rect_rotation = -45.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hook" type="Control" parent="Background/Cooldowns/Column1"]
+margin_top = 49.0
+margin_right = 146.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="Progress" type="ProgressBar" parent="Background/Cooldowns/Column1/Hook"]
+margin_top = 13.0
+margin_right = 119.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_styles/fg = ExtResource( 15 )
+custom_styles/bg = ExtResource( 13 )
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 1, 0.431373, 0.686275, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect7" type="TextureRect" parent="Background/Cooldowns/Column1/Hook"]
+margin_left = 123.82
+margin_top = 8.13818
+margin_right = 155.82
+margin_bottom = 40.1382
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Column2" type="VBoxContainer" parent="Background/Cooldowns"]
+margin_left = 196.0
+margin_right = 343.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Bounce" type="Control" parent="Background/Cooldowns/Column2"]
+margin_right = 147.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="Progress" type="ProgressBar" parent="Background/Cooldowns/Column2/Bounce"]
+margin_top = 13.0
+margin_right = 119.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_styles/fg = ExtResource( 15 )
+custom_styles/bg = ExtResource( 13 )
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 1, 0.431373, 0.686275, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect7" type="TextureRect" parent="Background/Cooldowns/Column2/Bounce"]
+margin_left = 124.453
+margin_top = 8.40894
+margin_right = 156.453
+margin_bottom = 40.4089
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Antigrav" type="Control" parent="Background/Cooldowns/Column2"]
+margin_top = 49.0
+margin_right = 147.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="Progress" type="ProgressBar" parent="Background/Cooldowns/Column2/Antigrav"]
+margin_top = 13.0
+margin_right = 119.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_styles/fg = ExtResource( 15 )
+custom_styles/bg = ExtResource( 13 )
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 1, 0.431373, 0.686275, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect7" type="TextureRect" parent="Background/Cooldowns/Column2/Antigrav"]
+margin_left = 123.82
+margin_top = 8.13818
+margin_right = 155.82
+margin_bottom = 40.1382
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Column3" type="VBoxContainer" parent="Background/Cooldowns"]
+margin_left = 393.0
+margin_right = 540.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Charge" type="Control" parent="Background/Cooldowns/Column3"]
+margin_right = 147.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="Progress" type="ProgressBar" parent="Background/Cooldowns/Column3/Charge"]
+margin_top = 13.0
+margin_right = 119.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_styles/fg = ExtResource( 15 )
+custom_styles/bg = ExtResource( 13 )
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 1, 0.431373, 0.686275, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect7" type="TextureRect" parent="Background/Cooldowns/Column3/Charge"]
+margin_left = 124.453
+margin_top = 8.40894
+margin_right = 156.453
+margin_bottom = 40.4089
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Teleport" type="Control" parent="Background/Cooldowns/Column3"]
+margin_top = 49.0
+margin_right = 147.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="Progress" type="ProgressBar" parent="Background/Cooldowns/Column3/Teleport"]
+margin_top = 13.0
+margin_right = 119.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_styles/fg = ExtResource( 15 )
+custom_styles/bg = ExtResource( 13 )
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 1, 0.431373, 0.686275, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect7" type="TextureRect" parent="Background/Cooldowns/Column3/Teleport"]
+margin_left = 123.82
+margin_top = 8.13818
+margin_right = 155.82
+margin_bottom = 40.1382
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="Background"]
+visible = false
+anchor_bottom = 1.0
+margin_left = 523.912
+margin_top = -0.224976
+margin_right = 694.912
+margin_bottom = -0.224976
+custom_fonts/font = SubResource( 1 )
+text = "5:32"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Control" parent="."]
+anchor_left = 0.8
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Label" parent="Controls"]
+anchor_left = 0.8
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -28.4526
+margin_top = -110.245
+margin_right = -8.4126
+margin_bottom = 146.755
+grow_horizontal = 0
+grow_vertical = 2
+custom_fonts/font = ExtResource( 11 )
+text = "Mouse 1
+
+Mouse 2
+
+Space
+
+Shift
+
+Ctrl
+
+Mouse 3
+
+Hide with [TAB]"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icons" type="Control" parent="Controls"]
+anchor_left = 0.8
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Controls/Icons"]
+margin_left = -81.0901
+margin_top = -110.3
+margin_right = 14.9099
+margin_bottom = -78.3004
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Controls/Icons"]
+margin_left = -68.9223
+margin_top = -75.9041
+margin_right = -36.9222
+margin_bottom = -43.9041
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="Controls/Icons"]
+margin_left = -53.5452
+margin_top = -35.7106
+margin_right = -21.5452
+margin_bottom = -3.71056
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="Controls/Icons"]
+margin_left = -43.3122
+margin_top = 1.10634
+margin_right = -11.3122
+margin_bottom = 33.1063
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect5" type="TextureRect" parent="Controls/Icons"]
+margin_left = -71.2984
+margin_top = 80.5636
+margin_right = -39.2982
+margin_bottom = 112.564
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect6" type="TextureRect" parent="Controls/Icons"]
+margin_left = -40.0222
+margin_top = 42.6616
+margin_right = -8.02224
+margin_bottom = 74.6616
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Pause" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PauseMenu" type="Control" parent="Pause"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 1.0
+margin_bottom = -130.0
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="Pause/PauseMenu"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 45.2142
+margin_top = -217.428
+margin_right = 372.214
+margin_bottom = -61.4285
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="TextureButton" parent="Pause/PauseMenu/Menu"]
+margin_left = 99.0
+margin_top = 8.0
+margin_right = 227.0
+margin_bottom = 40.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+script = ExtResource( 18 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pause/PauseMenu/Menu/Back"]
+anims/Hover = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="Pause/PauseMenu/Menu/Back"]
+
+[node name="Label" type="Label" parent="Pause/PauseMenu/Menu/Back"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+custom_fonts/font = ExtResource( 12 )
+text = "Back"
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="TextureButton" parent="Pause/PauseMenu/Menu"]
+margin_left = 99.0
+margin_top = 61.0
+margin_right = 227.0
+margin_bottom = 93.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+script = ExtResource( 18 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pause/PauseMenu/Menu/Options"]
+anims/Hover = SubResource( 3 )
+
+[node name="Tween" type="Tween" parent="Pause/PauseMenu/Menu/Options"]
+
+[node name="Label" type="Label" parent="Pause/PauseMenu/Menu/Options"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+custom_fonts/font = ExtResource( 12 )
+text = "Options"
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="TextureButton" parent="Pause/PauseMenu/Menu"]
+margin_left = 99.0
+margin_top = 114.0
+margin_right = 227.0
+margin_bottom = 146.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+script = ExtResource( 18 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pause/PauseMenu/Menu/Quit"]
+anims/Hover = SubResource( 4 )
+
+[node name="Tween" type="Tween" parent="Pause/PauseMenu/Menu/Quit"]
+
+[node name="Label" type="Label" parent="Pause/PauseMenu/Menu/Quit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+custom_fonts/font = ExtResource( 12 )
+text = "Quit"
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="Control" parent="Pause/PauseMenu"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 258.364
+margin_top = -240.853
+margin_right = -445.636
+margin_bottom = -58.853
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Sound" type="HSlider" parent="Pause/PauseMenu/Options"]
+anchor_right = 1.0
+margin_left = 100.0
+margin_top = 50.0
+margin_right = -100.0
+value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Pause/PauseMenu/Options/Sound"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -100.0
+margin_top = -20.0
+margin_right = 100.0
+margin_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 11 )
+text = "Sound"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Music" type="HSlider" parent="Pause/PauseMenu/Options"]
+anchor_right = 1.0
+margin_left = 100.0
+margin_top = 100.0
+margin_right = -100.0
+value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Pause/PauseMenu/Options/Music"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -100.0
+margin_top = -20.0
+margin_right = 100.0
+margin_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 11 )
+text = "Music"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Close" type="TextureButton" parent="Pause/PauseMenu/Options"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_top = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pause/PauseMenu/Options/Close"]
+anims/Hover = SubResource( 5 )
+
+[node name="Tween" type="Tween" parent="Pause/PauseMenu/Options/Close"]
+
+[node name="Label" type="Label" parent="Pause/PauseMenu/Options/Close"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+custom_fonts/font = ExtResource( 12 )
+text = "Close"
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pause/PauseMenu"]
+anims/Blackout = SubResource( 6 )
+anims/OptionsClose = SubResource( 7 )
+anims/OptionsOpen = SubResource( 8 )
+anims/OptionsOpenNormal = SubResource( 9 )
+
+[node name="Blackout" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="Pause/PauseMenu/Menu/Back" to="Pause/PauseMenu" method="_on_Back_button_up"]
+[connection signal="button_up" from="Pause/PauseMenu/Menu/Options" to="Pause/PauseMenu" method="_on_Options_button_up"]
+[connection signal="button_up" from="Pause/PauseMenu/Menu/Quit" to="Pause/PauseMenu" method="_on_Quit_button_up"]
+[connection signal="value_changed" from="Pause/PauseMenu/Options/Sound" to="Pause/PauseMenu" method="_on_Sound_value_changed"]
+[connection signal="value_changed" from="Pause/PauseMenu/Options/Music" to="Pause/PauseMenu" method="_on_Music_value_changed"]
+[connection signal="button_up" from="Pause/PauseMenu/Options/Close" to="Pause/PauseMenu" method="_on_Close_button_up"]

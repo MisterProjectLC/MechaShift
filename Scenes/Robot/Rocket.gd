@@ -12,3 +12,7 @@ func spawn_explosion():
 	get_parent().move_child(new, get_parent().get_child_count()-1)
 	new.global_position = $Sprite.global_position
 	queue_free()
+
+
+func _on_Timer_timeout():
+	spawn_explosion()

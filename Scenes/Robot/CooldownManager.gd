@@ -14,9 +14,7 @@ signal overloaded
 
 
 func increase_cooldown(type):
-	print_debug(cooldowns[type][2])
 	cooldowns[type][0] += cooldowns[type][2]
-	print_debug(cooldowns[type][0])
 	if cooldowns[type][0] >= max_value:
 		cooldowns[type][0] = max_value
 		cooldowns[type][1] = true
