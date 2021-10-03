@@ -10,5 +10,5 @@ func spawn_explosion():
 	var new = explosion.instance()
 	get_parent().add_child(new)
 	get_parent().move_child(new, get_parent().get_child_count()-1)
-	new.global_position = global_position
+	new.global_position = $Sprite.global_position
 	queue_free()

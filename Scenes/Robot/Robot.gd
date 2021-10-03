@@ -2,9 +2,14 @@ extends Node2D
 
 onready var Pointer = $Pointer
 onready var Wheel = $Wheel
+onready var WheelCamera = $Wheel/Camera2D
 onready var look_vector = get_global_mouse_position() - Wheel.global_position
 export(NodePath) var CooldownManagerPath
+export(NodePath) var UIPath
 onready var CooldownManager = get_node(CooldownManagerPath)
+onready var UI = get_node(UIPath)
+var damage = 0
+var max_damage = 3
 
 # hook
 export(PackedScene) var hook
@@ -14,27 +19,39 @@ var hooked = false
 var hook_initial_max_distance = 0
 var hook_max_distance = 0
 
-var bouncy = false
-var teleport_pos = Vector2.ZERO
-var stored_gravity = 0
-var stored_charge = 0
+var _bouncy = false
+var _teleport_pos = Vector2.ZERO
+var _stored_gravity = 0
+var _stored_charge = 0
 
 # attributes
 export(float) var wheel_velocity = 10
 export(float) var hook_velocity = 800
 export(float) var hook_force = 50
 export(float) var hook_pull_rope_speed = 100
-export(float) var rocket_velocity = 800
+export(float) var rocket_velocity = 700
 export(float) var rocket_knockback = 200
 export(float) var bounce_inital_push = 50
-export(float) var charge_multiplier = 100
-export(float) var charge_load_rate = 20
+export(float) var charge_multiplier = 20
+export(float) var charge_load_rate = 50
 
 var last_velocity = Vector2.ZERO
+
+var deactivation_enabled = true
 
 
 func _process(delta):
 	update()
+	
+	if (WheelCamera.limit_left > Wheel.position.x or 
+	WheelCamera.limit_top > Wheel.position.y or Wheel.position.y > WheelCamera.limit_bottom):
+		damage += delta
+		UI.set_blackout(damage/max_damage)
+		if damage > max_damage:
+			get_tree().reload_current_scene()
+	else:
+		damage = 0
+		UI.set_blackout(0)
 
 
 func _draw():
@@ -104,7 +121,7 @@ func set_hook(value):
 		CurrentHook = hook.instance()
 		add_child(CurrentHook)
 		move_child(CurrentHook, get_parent().get_child_count()-1)
-		CurrentHook.position = Wheel.position
+		CurrentHook.position = Pointer.position
 		CurrentHook.connect('hook_attached', self, 'hook_attached')
 		CurrentHook.shoot(look_vector*hook_velocity)
 		increase_cooldown(Global.HOOK)
@@ -115,8 +132,8 @@ func control_rocket():
 		var new = rocket.instance()
 		add_child(new)
 		move_child(new, get_child_count()-1)
-		new.position = Wheel.position
-		new.shoot(look_vector*hook_velocity)
+		new.position = Pointer.position
+		new.shoot(look_vector*rocket_velocity)
 		Wheel.apply_impulse(Vector2.ZERO, -look_vector*rocket_knockback)
 		increase_cooldown(Global.ROCKET)
 
@@ -134,12 +151,12 @@ func control_antigrav():
 
 func control_bounce():
 	if Input.is_action_just_pressed("toggle_bounce"):
-		set_bouncy(!bouncy)
+		set_bouncy(!_bouncy)
 
 func set_bouncy(value):
-	bouncy = value
-	if bouncy:
-		Wheel.apply_impulse(Vector2.ZERO, Vector2(0, Wheel.gravity_scale*bounce_inital_push))
+	_bouncy = value
+	if _bouncy:
+		Wheel.apply_impulse(Vector2.ZERO, Vector2(0, -Wheel.gravity_scale*bounce_inital_push))
 		Wheel.linear_damp = 0
 	else:
 		Wheel.linear_damp = 0.1
@@ -153,25 +170,30 @@ func hook_attached():
 
 func control_teleport():
 	if Input.is_action_just_pressed("teleport") and not CooldownManager.get_overload(Global.TELEPORT):
-		teleport_pos = get_global_mouse_position()
+		_teleport_pos = get_global_mouse_position()
 		increase_cooldown(Global.TELEPORT)
 		$AnimationPlayer.play("TeleportBegin")
 
 
 func control_charge(delta):
 	if not CooldownManager.get_overload(Global.CHARGE):
-		if stored_charge < 100 and Input.is_action_pressed("charge"):
-			Wheel.linear_velocity -= Wheel.linear_velocity*0.45*delta
-			stored_charge += delta*charge_load_rate
+		if Input.is_action_pressed("charge"):
+			if _stored_charge < 100:
+				Wheel.linear_velocity -= Wheel.linear_velocity*0.45*delta
+				_stored_charge += delta*charge_load_rate
+				$Pointer/ChargeBar.visible = true
+				$Pointer/ChargeBar.value = _stored_charge
+			
 		elif Input.is_action_just_released("charge"):
-			if stored_charge > 0:
-				Wheel.apply_impulse(Vector2.ZERO, look_vector*stored_charge*charge_multiplier)
+			if _stored_charge > 0:
+				Wheel.apply_impulse(Vector2.ZERO, look_vector*_stored_charge*charge_multiplier)
 				increase_cooldown(Global.CHARGE)
-				stored_charge = 0
+				_stored_charge = 0
+				$Pointer/ChargeBar.visible = false
 
 
 func _on_Wheel_on_collision(collision_normal):
-	if bouncy and not CooldownManager.get_overload(Global.BOUNCE):
+	if _bouncy and not CooldownManager.get_overload(Global.BOUNCE):
 		var bounce_direction = collision_normal.normalized()
 		var velocity_projection = last_velocity.dot(-bounce_direction)
 		if velocity_projection > 0:
@@ -182,6 +204,9 @@ func _on_Wheel_on_collision(collision_normal):
 
 
 func increase_cooldown(type):
+	if !deactivation_enabled:
+		return
+	
 	CooldownManager.increase_cooldown(type)
 
 
@@ -194,5 +219,5 @@ func _on_CooldownManager_overloaded(type):
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "TeleportBegin":
-		Wheel.global_position = teleport_pos
+		Wheel.global_position = _teleport_pos
 		$AnimationPlayer.play("TeleportEnd")

@@ -8,5 +8,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func _on_Explosion_body_entered(body):
 	var distance_to_body = body.position - position
-	body.apply_impulse(Vector2.ZERO, explosion_force *
-		(30 - distance_to_body.length()) * distance_to_body.normalized())
+	body.apply_impulse(Vector2.ZERO, explosion_force * distance_to_body.normalized())

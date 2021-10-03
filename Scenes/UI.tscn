@@ -1,7 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/UI.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Shaders/cooldown.tres" type="StyleBox" id=2]
+[ext_resource path="res://Assets/Fonts/UI.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Shaders/cd_background.tres" type="StyleBox" id=4]
+[ext_resource path="res://Assets/Fonts/MILLENNIA.TTF" type="DynamicFontData" id=5]
+[ext_resource path="res://Assets/Shaders/overload.tres" type="StyleBox" id=6]
+[ext_resource path="res://Assets/Art/Menu/HookIcon.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Art/Menu/RocketIcon.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Art/Menu/BounceIcon.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Art/Menu/AntigravIcon.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Art/Menu/TeleportIcon.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Art/Menu/ChargeIcon.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 5 )
 
 [node name="UI" type="Control"]
 anchor_right = 1.0
@@ -11,116 +25,396 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+HookBar = NodePath("Background/Cooldowns/Column1/Hook/Progress")
+RocketBar = NodePath("Background/Cooldowns/Column1/Rocket/Progress")
+BounceBar = NodePath("Background/Cooldowns/Column2/Bounce/Progress")
+AntiBar = NodePath("Background/Cooldowns/Column2/Antigrav/Progress")
+TeleportBar = NodePath("Background/Cooldowns/Column3/Teleport/Progress")
+ChargeBar = NodePath("Background/Cooldowns/Column3/Charge/Progress")
+cooldown = ExtResource( 2 )
+overload = ExtResource( 6 )
 
 [node name="Background" type="ColorRect" parent="."]
-anchor_top = 0.85
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -100.0
+color = Color( 0.0392157, 0.164706, 0.2, 1 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Cooldowns" type="HBoxContainer" parent="Background"]
-anchor_right = 0.35
 anchor_bottom = 1.0
-margin_left = 3.0
-margin_top = 11.0
+margin_top = 1.0
+margin_right = 550.0
 margin_bottom = -11.0
-custom_constants/separation = 25
+custom_constants/separation = 50
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Column1" type="VBoxContainer" parent="Background/Cooldowns"]
-margin_right = 101.0
-margin_bottom = 68.0
+margin_right = 150.0
+margin_bottom = 88.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 10
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Hook" type="ProgressBar" parent="Background/Cooldowns/Column1"]
-margin_top = 9.0
-margin_right = 101.0
-margin_bottom = 23.0
-size_flags_horizontal = 7
+[node name="Rocket" type="Control" parent="Background/Cooldowns/Column1"]
+margin_right = 150.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="Progress" type="ProgressBar" parent="Background/Cooldowns/Column1/Rocket"]
+margin_top = 13.0
+margin_right = 119.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_styles/fg = ExtResource( 2 )
+custom_styles/bg = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 0.431373, 0.686275, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Rocket" type="ProgressBar" parent="Background/Cooldowns/Column1"]
-margin_top = 45.0
-margin_right = 101.0
-margin_bottom = 59.0
-size_flags_horizontal = 7
+[node name="TextureRect7" type="TextureRect" parent="Background/Cooldowns/Column1/Rocket"]
+margin_left = 119.057
+margin_top = 30.3618
+margin_right = 215.057
+margin_bottom = 62.3618
+rect_rotation = -45.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hook" type="Control" parent="Background/Cooldowns/Column1"]
+margin_top = 49.0
+margin_right = 150.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="Progress" type="ProgressBar" parent="Background/Cooldowns/Column1/Hook"]
+margin_top = 13.0
+margin_right = 119.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_styles/fg = ExtResource( 2 )
+custom_styles/bg = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 0.431373, 0.686275, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect7" type="TextureRect" parent="Background/Cooldowns/Column1/Hook"]
+margin_left = 123.82
+margin_top = 8.13818
+margin_right = 155.82
+margin_bottom = 40.1382
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Column2" type="VBoxContainer" parent="Background/Cooldowns"]
-margin_left = 126.0
-margin_right = 228.0
-margin_bottom = 68.0
+margin_left = 200.0
+margin_right = 350.0
+margin_bottom = 88.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 10
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Bounce" type="ProgressBar" parent="Background/Cooldowns/Column2"]
-margin_top = 9.0
-margin_right = 102.0
-margin_bottom = 23.0
-size_flags_horizontal = 7
+[node name="Bounce" type="Control" parent="Background/Cooldowns/Column2"]
+margin_right = 150.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="Progress" type="ProgressBar" parent="Background/Cooldowns/Column2/Bounce"]
+margin_top = 13.0
+margin_right = 119.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_styles/fg = ExtResource( 2 )
+custom_styles/bg = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 0.431373, 0.686275, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AntiGravity" type="ProgressBar" parent="Background/Cooldowns/Column2"]
-margin_top = 45.0
-margin_right = 102.0
-margin_bottom = 59.0
-size_flags_horizontal = 7
+[node name="TextureRect7" type="TextureRect" parent="Background/Cooldowns/Column2/Bounce"]
+margin_left = 124.453
+margin_top = 8.40894
+margin_right = 156.453
+margin_bottom = 40.4089
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Antigrav" type="Control" parent="Background/Cooldowns/Column2"]
+margin_top = 49.0
+margin_right = 150.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="Progress" type="ProgressBar" parent="Background/Cooldowns/Column2/Antigrav"]
+margin_top = 13.0
+margin_right = 119.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
 size_flags_vertical = 6
+custom_styles/fg = ExtResource( 2 )
+custom_styles/bg = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 0.431373, 0.686275, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect7" type="TextureRect" parent="Background/Cooldowns/Column2/Antigrav"]
+margin_left = 123.82
+margin_top = 8.13818
+margin_right = 155.82
+margin_bottom = 40.1382
+texture = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Column3" type="VBoxContainer" parent="Background/Cooldowns"]
-margin_left = 253.0
-margin_right = 355.0
-margin_bottom = 68.0
+margin_left = 400.0
+margin_right = 550.0
+margin_bottom = 88.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 10
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Teleport" type="ProgressBar" parent="Background/Cooldowns/Column3"]
-margin_top = 9.0
-margin_right = 102.0
-margin_bottom = 23.0
-size_flags_horizontal = 7
+[node name="Charge" type="Control" parent="Background/Cooldowns/Column3"]
+margin_right = 150.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="Progress" type="ProgressBar" parent="Background/Cooldowns/Column3/Charge"]
+margin_top = 13.0
+margin_right = 119.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_styles/fg = ExtResource( 2 )
+custom_styles/bg = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 0.431373, 0.686275, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Charge" type="ProgressBar" parent="Background/Cooldowns/Column3"]
-margin_top = 45.0
-margin_right = 102.0
-margin_bottom = 59.0
-size_flags_horizontal = 7
-size_flags_vertical = 6
+[node name="TextureRect7" type="TextureRect" parent="Background/Cooldowns/Column3/Charge"]
+margin_left = 124.453
+margin_top = 8.40894
+margin_right = 156.453
+margin_bottom = 40.4089
+texture = ExtResource( 12 )
 __meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Teleport" type="Control" parent="Background/Cooldowns/Column3"]
+margin_top = 49.0
+margin_right = 150.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="Progress" type="ProgressBar" parent="Background/Cooldowns/Column3/Teleport"]
+margin_top = 13.0
+margin_right = 119.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_styles/fg = ExtResource( 2 )
+custom_styles/bg = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 0.431373, 0.686275, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect7" type="TextureRect" parent="Background/Cooldowns/Column3/Teleport"]
+margin_left = 123.82
+margin_top = 8.13818
+margin_right = 155.82
+margin_bottom = 40.1382
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="Background"]
+visible = false
+anchor_bottom = 1.0
+margin_left = 523.912
+margin_top = -0.224976
+margin_right = 694.912
+margin_bottom = -0.224976
+custom_fonts/font = SubResource( 1 )
+text = "5:32"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Control" parent="."]
+anchor_left = 0.8
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Label" parent="Controls"]
+anchor_left = 0.8
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_right = -10.0
+grow_horizontal = 0
+grow_vertical = 2
+custom_fonts/font = ExtResource( 3 )
+text = "Mouse 1
+
+Mouse 2
+
+Space
+
+Shift
+
+Ctrl
+
+Mouse 3"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icons" type="Control" parent="Controls"]
+anchor_left = 0.8
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Controls/Icons"]
+margin_left = -81.0901
+margin_top = -110.3
+margin_right = 14.9099
+margin_bottom = -78.3004
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Controls/Icons"]
+margin_left = -68.9223
+margin_top = -75.9041
+margin_right = -36.9222
+margin_bottom = -43.9041
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="Controls/Icons"]
+margin_left = -53.5452
+margin_top = -35.7106
+margin_right = -21.5452
+margin_bottom = -3.71056
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="Controls/Icons"]
+margin_left = -43.3122
+margin_top = 1.10634
+margin_right = -11.3122
+margin_bottom = 33.1063
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect5" type="TextureRect" parent="Controls/Icons"]
+margin_left = -71.2984
+margin_top = 80.5636
+margin_right = -39.2982
+margin_bottom = 112.564
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect6" type="TextureRect" parent="Controls/Icons"]
+margin_left = -40.0222
+margin_top = 42.6616
+margin_right = -8.02224
+margin_bottom = 74.6616
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Blackout" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }

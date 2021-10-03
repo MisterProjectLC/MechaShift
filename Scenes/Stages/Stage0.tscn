@@ -1,0 +1,290 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scenes/Obstacles/Car.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Obstacles/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Obstacles/BigBuilding.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Obstacles/SmallBuilding.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Obstacles/Truck.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Fonts/Stage.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Scenes/Obstacles/Bus.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Obstacles/Outdoor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Obstacles/Building.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Stages/Stage0.gd" type="Script" id=10]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 219.112, 2000 )
+
+[node name="Stage0" type="Node2D"]
+script = ExtResource( 10 )
+
+[node name="Buildings" type="Node2D" parent="."]
+
+[node name="BigBuilding" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 9582.43, 532.119 )
+
+[node name="BigBuilding3" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( 13757.8, 542.797 )
+
+[node name="BigBuilding2" parent="Buildings" instance=ExtResource( 3 )]
+position = Vector2( -1991.39, -419.47 )
+
+[node name="Building" parent="Buildings" instance=ExtResource( 9 )]
+position = Vector2( 406.046, 808.213 )
+
+[node name="Building3" parent="Buildings" instance=ExtResource( 9 )]
+position = Vector2( 2822.87, 824.581 )
+
+[node name="Building5" parent="Buildings" instance=ExtResource( 9 )]
+position = Vector2( 6512.11, 4800.61 )
+
+[node name="Building4" parent="Buildings" instance=ExtResource( 9 )]
+position = Vector2( 5221.25, 549.114 )
+
+[node name="Building8" parent="Buildings" instance=ExtResource( 9 )]
+position = Vector2( 19050.1, 871.654 )
+
+[node name="Building9" parent="Buildings" instance=ExtResource( 9 )]
+position = Vector2( 22049.5, 1118.52 )
+
+[node name="Building10" parent="Buildings" instance=ExtResource( 9 )]
+position = Vector2( 23679.8, 585.732 )
+
+[node name="Building11" parent="Buildings" instance=ExtResource( 9 )]
+position = Vector2( 28333.8, 1298.02 )
+
+[node name="Building6" parent="Buildings" instance=ExtResource( 9 )]
+position = Vector2( 7175.22, 215.16 )
+
+[node name="Building7" parent="Buildings" instance=ExtResource( 9 )]
+position = Vector2( 16189, 886.402 )
+
+[node name="SmallBuilding" parent="Buildings" instance=ExtResource( 4 )]
+position = Vector2( 1615.37, 970.453 )
+
+[node name="SmallBuilding2" parent="Buildings" instance=ExtResource( 4 )]
+position = Vector2( 4022.2, 1075.19 )
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Car" parent="Objects" instance=ExtResource( 1 )]
+position = Vector2( 3025.89, -323.133 )
+
+[node name="Car2" parent="Objects" instance=ExtResource( 1 )]
+position = Vector2( 4815.81, -859.093 )
+
+[node name="Car3" parent="Objects" instance=ExtResource( 1 )]
+position = Vector2( 9979.63, -395.431 )
+
+[node name="Car4" parent="Objects" instance=ExtResource( 1 )]
+position = Vector2( 6213.05, 243.994 )
+
+[node name="Car5" parent="Objects" instance=ExtResource( 1 )]
+position = Vector2( 11353.1, 689.865 )
+
+[node name="Car8" parent="Objects" instance=ExtResource( 1 )]
+position = Vector2( 20317.4, 433.128 )
+
+[node name="Car9" parent="Objects" instance=ExtResource( 1 )]
+position = Vector2( 18966.4, -408.783 )
+
+[node name="Car10" parent="Objects" instance=ExtResource( 1 )]
+position = Vector2( 20877.6, 860.143 )
+
+[node name="Car11" parent="Objects" instance=ExtResource( 1 )]
+position = Vector2( 21211.2, -261.462 )
+
+[node name="Car6" parent="Objects" instance=ExtResource( 1 )]
+position = Vector2( 11595.7, 946.734 )
+
+[node name="Car7" parent="Objects" instance=ExtResource( 1 )]
+position = Vector2( 11933.5, 418.726 )
+
+[node name="Truck" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 1614.18, -529.567 )
+
+[node name="Truck2" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 5724.23, -1974.96 )
+
+[node name="Truck3" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 7030.75, -1819.13 )
+
+[node name="Truck6" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 12979.4, -1152.37 )
+
+[node name="Truck7" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 17901.3, -1379.04 )
+
+[node name="Truck8" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 20239.9, -794.639 )
+
+[node name="Truck4" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 8094.25, -1143.87 )
+
+[node name="Truck5" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 11690.2, -894.388 )
+
+[node name="Bus" parent="Objects" instance=ExtResource( 7 )]
+position = Vector2( 4087.83, -1080.55 )
+
+[node name="Bus2" parent="Objects" instance=ExtResource( 7 )]
+position = Vector2( 6749.56, -1295.17 )
+
+[node name="Bus3" parent="Objects" instance=ExtResource( 7 )]
+position = Vector2( 9167.95, -1409.65 )
+
+[node name="Bus4" parent="Objects" instance=ExtResource( 7 )]
+position = Vector2( 22081.3, -1219.71 )
+
+[node name="Bus5" parent="Objects" instance=ExtResource( 7 )]
+position = Vector2( 23774.4, -775.15 )
+
+[node name="Bus6" parent="Objects" instance=ExtResource( 7 )]
+position = Vector2( 25315.8, -669.429 )
+
+[node name="Bus7" parent="Objects" instance=ExtResource( 7 )]
+position = Vector2( 27013.8, -685.124 )
+
+[node name="Outdoor" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( 7433.6, -1133.22 )
+
+[node name="Outdoor2" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( 4876.7, -1664.97 )
+
+[node name="Outdoor3" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( 9463.29, -832.653 )
+
+[node name="Outdoor4" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( 13577.8, -604.068 )
+
+[node name="Outdoor5" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( 12329.2, -1076.9 )
+
+[node name="Outdoor6" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( 17183.5, -500.568 )
+
+[node name="Outdoor7" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( 29119.9, 84.8171 )
+
+[node name="Outdoor8" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( 29167, -605.548 )
+
+[node name="Outdoor9" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( 29152.8, -1247.91 )
+
+[node name="Enemy" parent="Objects" instance=ExtResource( 2 )]
+position = Vector2( 9435.83, -373.108 )
+
+[node name="Enemy2" parent="Objects" instance=ExtResource( 2 )]
+position = Vector2( 22384.3, -98.3962 )
+
+[node name="Tutorial Signs" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wheel" type="Label" parent="Tutorial Signs"]
+margin_left = 75.7716
+margin_top = -132.114
+margin_right = 862.772
+margin_bottom = -67.1144
+custom_fonts/font = ExtResource( 6 )
+text = "A and D to spin your wheel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Space" type="Label" parent="Tutorial Signs"]
+margin_left = 1330.71
+margin_top = -49.443
+margin_right = 2077.71
+margin_bottom = 83.557
+custom_fonts/font = ExtResource( 6 )
+text = "Space to toggle 
+bouncing"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gravity" type="Label" parent="Tutorial Signs"]
+margin_left = 3687.57
+margin_top = 133.432
+margin_right = 4365.57
+margin_bottom = 198.432
+custom_fonts/font = ExtResource( 6 )
+text = "Shift to invert gravity"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Charge" type="Label" parent="Tutorial Signs"]
+margin_left = 5057.8
+margin_top = -561.963
+margin_right = 5969.8
+margin_bottom = -360.963
+custom_fonts/font = ExtResource( 6 )
+text = "Hold Ctrl to load a charge.
+Release to launch towards the
+mouse."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rocket" type="Label" parent="Tutorial Signs"]
+margin_left = 8207.28
+margin_top = -420.486
+margin_right = 9213.28
+margin_bottom = -355.486
+custom_fonts/font = ExtResource( 6 )
+text = "Press Mouse 1 to launch a rocket."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hook" type="Label" parent="Tutorial Signs"]
+margin_left = 10292.1
+margin_top = -582.36
+margin_right = 11549.1
+margin_bottom = -381.36
+custom_fonts/font = ExtResource( 6 )
+text = "Press Mouse 2 to launch a grappling hook.
+Hold W and S to adjust its length.
+Press Mouse 2 again to retract it."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Teleport" type="Label" parent="Tutorial Signs"]
+margin_left = 12369.2
+margin_top = -552.689
+margin_right = 13370.2
+margin_bottom = -419.689
+custom_fonts/font = ExtResource( 6 )
+text = "Press Mouse 3 (Middle Button) to 
+teleport to the mouse pointer."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Teleport2" type="Label" parent="Tutorial Signs"]
+margin_left = 15831.9
+margin_top = -362.013
+margin_right = 16863.9
+margin_bottom = -25.0128
+custom_fonts/font = ExtResource( 6 )
+text = "Every power has a meter, shown
+on the bottom part of the screen.
+When it reaches 100%, it overloads
+and stays disabled until it comes 
+back down to 0%."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 15296.1, -553.08 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 287.54, -1191.56 )
+shape = SubResource( 2 )

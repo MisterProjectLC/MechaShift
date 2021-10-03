@@ -19,8 +19,8 @@ onready var _root : Viewport = get_tree().root
 
 # const black_bar_texture = preload("res://black_bars.png")
 
-var base_size : = Vector2(640, 360) setget set_base_size
-var expand : = false setget set_expand
+var base_size : = Vector2(1024, 600) setget set_base_size
+var expand : = true setget set_expand
 var pixel_perfect : = true setget set_pixel_perfect
 var pixel_aspect : = Vector2(1, 1) setget set_pixel_aspect
 

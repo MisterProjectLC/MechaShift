@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Assets/Art/Player/MissileBlue.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Art/Player/Missile.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Robot/Rocket.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Robot/Explosion.tscn" type="PackedScene" id=3]
 
@@ -8,9 +8,9 @@
 extents = Vector2( 57.8184, 24.7097 )
 
 [node name="Rocket" type="RigidBody2D"]
-position = Vector2( 0.398865, -0.90213 )
-collision_layer = 2
-collision_mask = 20
+position = Vector2( -2.381, -0.667419 )
+collision_layer = 8
+collision_mask = 5
 gravity_scale = 0.0
 continuous_cd = 1
 contacts_reported = 10
@@ -20,11 +20,11 @@ script = ExtResource( 2 )
 explosion = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 95.5, 1 )
+position = Vector2( 84.6354, 0 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 95.5, 1.37458 )
+position = Vector2( 84.6354, 0.374578 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 

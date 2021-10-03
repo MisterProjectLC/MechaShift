@@ -1,18 +1,24 @@
 extends Control
 
-onready var HookBar = $Background/Cooldowns/Column1/Hook
-onready var RocketBar = $Background/Cooldowns/Column1/Rocket
-onready var BounceBar = $Background/Cooldowns/Column2/Bounce
-onready var AntiBar = $Background/Cooldowns/Column2/AntiGravity
-onready var TeleportBar = $Background/Cooldowns/Column3/Teleport
-onready var ChargeBar = $Background/Cooldowns/Column3/Charge
+export(NodePath) var HookBar
+export(NodePath) var RocketBar
+export(NodePath) var BounceBar
+export(NodePath) var AntiBar
+export(NodePath) var TeleportBar
+export(NodePath) var ChargeBar
 
 export(StyleBox) var cooldown
 export(StyleBox) var overload
 
-onready var Bars = {Global.HOOK:HookBar, Global.ROCKET:RocketBar, 
-					Global.BOUNCE:BounceBar, Global.ANTI:AntiBar, 
-					Global.TELEPORT:TeleportBar, Global.CHARGE:ChargeBar}
+onready var Bars = {Global.HOOK:get_node(HookBar), Global.ROCKET:get_node(RocketBar),
+					Global.BOUNCE:get_node(BounceBar), Global.ANTI:get_node(AntiBar),
+					Global.TELEPORT:get_node(TeleportBar), Global.CHARGE:get_node(ChargeBar)}
+
+
+
+func _process(delta):
+	if Input.is_action_just_pressed("toggle_controls"):
+		$Controls.visible = !$Controls.visible
 
 
 func set_cooldown(type, amount):
@@ -24,3 +30,14 @@ func set_overload(type, value):
 		Bars[type].set("custom_styles/fg", overload)
 	else:
 		Bars[type].set("custom_styles/fg", cooldown)
+
+
+func set_timer(time: int):
+	if time % 60 < 10:
+		$Background/Time.text = "0" + str(time / 60) + ":0" + str(time % 60)
+	else:
+		$Background/Time.text = "0" + str(time / 60) + ":" + str(time % 60)
+
+
+func set_blackout(level):
+	$Blackout.color = Color($Blackout.color.r, $Blackout.color.g, $Blackout.color.b, level)
