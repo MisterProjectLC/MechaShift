@@ -8,7 +8,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 57.8184, 24.7097 )
 
-[node name="Rocket" type="RigidBody2D"]
+[node name="Rocket" type="RigidBody2D" groups=[
+"Rocket",
+]]
 position = Vector2( 0.398865, -0.90213 )
 collision_layer = 2
 collision_mask = 28

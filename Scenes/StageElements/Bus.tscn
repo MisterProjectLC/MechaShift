@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Art/Misc/onibus.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 544, 160 )
@@ -19,5 +19,5 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 2.52271, 1.68179 )
-scale = Vector2( 16.9767, 4.986 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )

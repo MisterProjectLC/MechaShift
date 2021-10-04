@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/Fonts/MILLENNIA.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Art/Menu/MenuButton.png" type="Texture" id=2]
@@ -18,6 +18,8 @@
 [ext_resource path="res://Scenes/UI/UI.gd" type="Script" id=16]
 [ext_resource path="res://Scenes/PauseMenu.gd" type="Script" id=17]
 [ext_resource path="res://Scenes/MenuButton.gd" type="Script" id=18]
+[ext_resource path="res://Assets/Art/Misc/player-head-full.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Art/Misc/player-coil.png" type="Texture" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -473,6 +475,77 @@ text = "5:32"
 align = 1
 valign = 1
 __meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Head" type="TextureRect" parent="Background"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -192.508
+margin_top = -120.102
+margin_right = 51.4915
+margin_bottom = 267.898
+grow_horizontal = 0
+grow_vertical = 0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coil" type="TextureRect" parent="Background"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -255.702
+margin_top = -253.192
+margin_right = -11.7024
+margin_bottom = 134.808
+grow_horizontal = 0
+grow_vertical = 0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Coil2" type="TextureRect" parent="Background"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -316.315
+margin_top = -254.315
+margin_right = -72.3153
+margin_bottom = 133.685
+grow_horizontal = 0
+grow_vertical = 0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Coil3" type="TextureRect" parent="Background"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -378.051
+margin_top = -254.315
+margin_right = -134.051
+margin_bottom = 133.685
+grow_horizontal = 0
+grow_vertical = 0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
