@@ -66,6 +66,7 @@ func transition_finished(anim_name):
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "RollCredits":
+		get_tree().paused = false
 		get_tree().change_scene("res://Scenes/MainMenu.tscn")
 
 

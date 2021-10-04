@@ -14,6 +14,7 @@ func _on_EndFight_body_entered(body):
 	
 	$Tween.interpolate_method($bgm, "set_volume_db",
 			$bgm.get_volume_db(), -60, 5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween.start()
 	
 	player.camera_limit_speed = 0
 	player.set_left_limit(26000)
