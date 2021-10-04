@@ -88,6 +88,7 @@ anims/Explosion = SubResource( 2 )
 ]]
 stream = SubResource( 3 )
 volume_db = -5.0
+bus = "SFX"
 
 [node name="Explosion" parent="." instance=ExtResource( 4 )]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Fonts/Stage.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/Robot/Robot.tscn" type="PackedScene" id=2]
@@ -8,10 +8,11 @@
 [ext_resource path="res://Assets/Art/Misc/Fundo1.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Art/Misc/Fundo3.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/UI/EndStageCard.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Music/Shift_Happened.mp3" type="AudioStream" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "RollCredits"
-length = 15.0
+length = 20.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Credits/Credits:margin_top")
 tracks/0/interp = 1
@@ -35,6 +36,30 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("credits:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 19.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("credits:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 15.8, 20 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -15.0, -15.0, -60.0 ]
 }
 
 [node name="Main" type="Node2D"]
@@ -136,8 +161,8 @@ Sound Design
 Dan 'MisterProject' Isamu:
 Programming
 
-EXTRA RESOURCES
-"
+
+Thanks for playing!"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -154,6 +179,11 @@ autostart = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 pause_mode = 2
 anims/RollCredits = SubResource( 1 )
+
+[node name="credits" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -15.0
+bus = "BGM"
 
 [connection signal="overloaded" from="CooldownManager" to="Robot" method="_on_CooldownManager_overloaded"]
 [connection signal="next_pressed" from="CanvasLayer/EndStage" to="." method="_on_EndStage_next_pressed"]
