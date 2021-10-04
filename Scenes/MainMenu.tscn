@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Fonts/Menu.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/MenuButton.gd" type="Script" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Assets/Art/Menu/MenuButtonPressed.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Art/Menu/MenuButtonHover.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Fonts/UI.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Assets/Art/Misc/Fundo1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Art/Misc/Fundo3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Art/Misc/Title.png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Hover"
@@ -165,23 +168,52 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Menu" type="VBoxContainer" parent="."]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 45.2142
-margin_top = -217.428
-margin_right = 372.214
-margin_bottom = -61.4285
-mouse_filter = 2
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 8 )
+flip_v = true
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
+[node name="Background2" type="TextureRect" parent="."]
+modulate = Color( 0, 0, 0, 0.760784 )
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Background3" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_top = -204.266
+margin_bottom = -48.2662
+grow_horizontal = 2
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Play" type="TextureButton" parent="Menu"]
-margin_left = 99.0
 margin_top = 8.0
-margin_right = 227.0
+margin_right = 128.0
 margin_bottom = 40.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -208,9 +240,8 @@ __meta__ = {
 }
 
 [node name="Options" type="TextureButton" parent="Menu"]
-margin_left = 99.0
 margin_top = 61.0
-margin_right = 227.0
+margin_right = 128.0
 margin_bottom = 93.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -237,9 +268,8 @@ __meta__ = {
 }
 
 [node name="Quit" type="TextureButton" parent="Menu"]
-margin_left = 99.0
 margin_top = 114.0
-margin_right = 227.0
+margin_right = 128.0
 margin_bottom = 146.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -270,12 +300,11 @@ visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 258.364
-margin_top = -240.853
-margin_right = -445.636
-margin_bottom = -58.853
+margin_left = 719.398
+margin_top = -195.598
+margin_right = 15.3977
+margin_bottom = -13.5982
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -370,13 +399,6 @@ __meta__ = {
 anims/OptionsClose = SubResource( 5 )
 anims/OptionsOpen = SubResource( 6 )
 anims/OptionsOpenNormal = SubResource( 7 )
-
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="button_up" from="Menu/Play" to="." method="_on_Play_button_up"]
 [connection signal="button_up" from="Menu/Options" to="." method="_on_Options_button_up"]
