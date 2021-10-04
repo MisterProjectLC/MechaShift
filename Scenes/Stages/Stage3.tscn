@@ -73,10 +73,7 @@ position = Vector2( 22865.5, -1266.45 )
 position = Vector2( 22532.6, 506.292 )
 
 [node name="Bus9" parent="Objects" instance=ExtResource( 7 )]
-position = Vector2( 30056.8, -866.06 )
-
-[node name="Bus10" parent="Objects" instance=ExtResource( 7 )]
-position = Vector2( 30024.8, 277.94 )
+position = Vector2( 30005.9, -416.848 )
 
 [node name="Enemy6" parent="Objects" instance=ExtResource( 2 )]
 position = Vector2( 6921.44, -551.97 )
@@ -124,7 +121,7 @@ position = Vector2( 20690.9, 754.1 )
 position = Vector2( 25733.1, 763.614 )
 
 [node name="Truck15" parent="Objects" instance=ExtResource( 6 )]
-position = Vector2( 29733.1, 1563.61 )
+position = Vector2( 30182.6, 960.631 )
 
 [node name="Car3" parent="Objects" instance=ExtResource( 1 )]
 position = Vector2( 22224.6, -125.218 )
@@ -133,7 +130,7 @@ position = Vector2( 22224.6, -125.218 )
 position = Vector2( 22224.6, -125.218 )
 
 [node name="Car10" parent="Objects" instance=ExtResource( 1 )]
-position = Vector2( 31402.7, -923.267 )
+position = Vector2( 29625.2, 386.187 )
 
 [node name="Car5" parent="Objects" instance=ExtResource( 3 )]
 position = Vector2( 21365.7, -462.581 )
@@ -356,14 +353,6 @@ autostart = true
 wait_time = 0.5
 one_shot = true
 
-[node name="Laser27" parent="Objects" instance=ExtResource( 12 )]
-position = Vector2( 29508.2, -650.154 )
-rotation = 1.5708
-
-[node name="Laser28" parent="Objects" instance=ExtResource( 12 )]
-position = Vector2( 30548.2, -642.154 )
-rotation = 1.5708
-
 [node name="Laser10" parent="Objects" instance=ExtResource( 12 )]
 position = Vector2( 25330.2, -38.6417 )
 
@@ -408,19 +397,16 @@ position = Vector2( 23711.3, -331.853 )
 position = Vector2( 27616.1, 902.92 )
 
 [node name="Spawn 1" type="Position2D" parent="Spawns"]
-position = Vector2( 3352.59, -1714.39 )
+position = Vector2( 3101.12, -938.819 )
 
 [node name="Spawn 2" type="Position2D" parent="Spawns"]
-position = Vector2( 3944.67, -1451.25 )
+position = Vector2( 3495.18, -408.428 )
 
 [node name="Spawn 3" type="Position2D" parent="Spawns"]
-position = Vector2( 1659.71, -1816.36 )
-
-[node name="Spawn 4" type="Position2D" parent="Spawns"]
-position = Vector2( 2431.9, -1111.18 )
+position = Vector2( 2026.74, -895.925 )
 
 [node name="Spawn 5" type="Position2D" parent="Spawns"]
-position = Vector2( 3427.5, -500.24 )
+position = Vector2( 2628.08, -379.767 )
 
 [node name="EndFight" type="Area2D" parent="."]
 position = Vector2( 27616.1, 902.92 )

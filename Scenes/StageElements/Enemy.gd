@@ -25,6 +25,9 @@ func _physics_process(delta):
 	if !_broken_rotor:
 		t += delta
 		Body.linear_velocity = Vector2(0, cos(t)*100)
+	
+	if Body.global_position.y > 1500 or Body.global_position.y < -1500:
+		explode()
 
 
 func _on_RocketTimer_timeout():
