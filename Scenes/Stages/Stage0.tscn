@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/StageElements/Car.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/StageElements/Enemy.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Scenes/Tilemap/Tileset.tres" type="TileSet" id=11]
 [ext_resource path="res://Scenes/StageElements/CarViolet.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/StageElements/CarRed.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Music/Shift_Happens.mp3" type="AudioStream" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 300, 2000 )
@@ -304,6 +305,12 @@ position = Vector2( 29512, -512 )
 
 [node name="Outdoor5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 30016, -512 )
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -15.0
+autoplay = true
+bus = "BGM"
 
 [connection signal="body_entered" from="ActivateCooldowns" to="." method="_on_ActivateCooldowns_body_entered"]
 [connection signal="body_entered" from="EndStage" to="." method="_on_EndStage_body_entered"]

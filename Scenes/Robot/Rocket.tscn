@@ -36,6 +36,7 @@ texture = ExtResource( 1 )
 ]]
 stream = ExtResource( 4 )
 autoplay = true
+bus = "SFX"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

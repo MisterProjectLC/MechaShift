@@ -46,5 +46,6 @@ func update_cooldown(type):
 
 
 func get_overload(type):
-	if cooldowns[type][1]: $sfx_cd_off.play()
+	if cooldowns[type][1] and type != Global.CHARGE:
+		$sfx_cd_off.play()
 	return cooldowns[type][1]

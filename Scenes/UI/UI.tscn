@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/Fonts/MILLENNIA.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Art/Menu/MenuButton.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Scenes/MenuButton.gd" type="Script" id=18]
 [ext_resource path="res://Assets/Art/Misc/player-head-full.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Art/Misc/player-coil.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/HSlider.gd" type="Script" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -774,7 +775,9 @@ anchor_right = 1.0
 margin_left = 100.0
 margin_top = 50.0
 margin_right = -100.0
-value = 100.0
+max_value = 40.0
+value = 40.0
+script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -801,10 +804,13 @@ anchor_right = 1.0
 margin_left = 100.0
 margin_top = 100.0
 margin_right = -100.0
-value = 100.0
+max_value = 40.0
+value = 40.0
+script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+group = "BGM"
 
 [node name="Label" type="Label" parent="Pause/PauseMenu/Options/Music"]
 anchor_left = 0.5

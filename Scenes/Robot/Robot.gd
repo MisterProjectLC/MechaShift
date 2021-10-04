@@ -214,6 +214,7 @@ func control_overload():
 		if !overload_active:
 			return
 		
+		$sfx_goodoverload.play()
 		overload_active = false
 		CooldownManager.restore_everything()
 		var new = explosion.instance()
