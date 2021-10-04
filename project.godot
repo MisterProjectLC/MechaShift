@@ -17,8 +17,12 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Global.gd"
-PixelPerfect="*res://Assets/Additional Code/pixel_perfect.gd"
 Transitions="*res://Scenes/UI/Transitions.tscn"
+
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [importer_defaults]
 
