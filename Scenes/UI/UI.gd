@@ -35,6 +35,11 @@ func set_overload(type, value):
 		Bars[type].set("custom_styles/fg", cooldown)
 
 
+func activate_overload():
+	$Background/Coil.visible = false
+	$Background/Head.modulate = Color("721C2F")
+
+
 func set_timer(time: int):
 	if time % 60 < 10:
 		$Background/Time.text = "0" + str(time / 60) + ":0" + str(time % 60)

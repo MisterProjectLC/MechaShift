@@ -16,6 +16,7 @@ autostart = true
 ]]
 stream = ExtResource( 2 )
 volume_db = -5.0
+bus = "SFX"
 
 [node name="sfx_cd_off" type="AudioStreamPlayer" parent="." groups=[
 "SFX",
@@ -23,5 +24,6 @@ volume_db = -5.0
 stream = ExtResource( 1 )
 volume_db = -5.0
 pitch_scale = 1.4
+bus = "SFX"
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]

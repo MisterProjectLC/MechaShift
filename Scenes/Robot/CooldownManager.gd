@@ -13,6 +13,14 @@ var cooldowns = {Global.HOOK:[0, false, 35], Global.ROCKET:[0, false, 20],
 signal overloaded
 
 
+func restore_everything():
+	for i in cooldowns.keys():
+		cooldowns[i][0] = min_value
+		if cooldowns[i][1]: $sfx_cd_on.play()
+		cooldowns[i][0] = min_value
+		cooldowns[i][1] = false
+		update_cooldown(i)
+
 func increase_cooldown(type):
 	cooldowns[type][0] += cooldowns[type][2]
 	if cooldowns[type][0] >= max_value:
@@ -38,5 +46,6 @@ func update_cooldown(type):
 
 
 func get_overload(type):
-	if cooldowns[type][1]: $sfx_cd_off.play()
+	if cooldowns[type][1] and type != Global.CHARGE:
+		$sfx_cd_off.play()
 	return cooldowns[type][1]

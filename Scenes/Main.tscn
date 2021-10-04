@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Fonts/Stage.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/Robot/Robot.tscn" type="PackedScene" id=2]
@@ -8,33 +8,58 @@
 [ext_resource path="res://Assets/Art/Misc/Fundo1.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Art/Misc/Fundo3.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/UI/EndStageCard.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Music/Shift_Happened.mp3" type="AudioStream" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "RollCredits"
-length = 15.0
+length = 20.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Credits/ColorRect:color")
+tracks/0/path = NodePath("CanvasLayer/Credits/Credits:margin_top")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 1.3, 14.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+"values": [ 300, 300, -2000 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CanvasLayer/Credits/Credits:margin_top")
+tracks/1/path = NodePath("CanvasLayer/Credits/TextureRect:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1, 1.3, 14.2 ),
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("credits:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 19.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("credits:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 15.8, 20 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 300, 300, -2000 ]
+"values": [ -15.0, -15.0, -60.0 ]
 }
 
 [node name="Main" type="Node2D"]
@@ -89,6 +114,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Credits"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Credits/TextureRect"]
+modulate = Color( 0, 0, 0, 0.647059 )
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Credits"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -102,10 +147,9 @@ __meta__ = {
 [node name="Credits" type="Label" parent="CanvasLayer/Credits"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = -0.0454102
 margin_top = 300.0
-margin_right = 1015.95
-margin_bottom = 1036.37
+margin_right = 1016.0
+margin_bottom = 1994.0
 custom_fonts/font = ExtResource( 1 )
 text = "CREDITS
 Anderson Garrote:
@@ -117,8 +161,8 @@ Sound Design
 Dan 'MisterProject' Isamu:
 Programming
 
-EXTRA RESOURCES
-"
+
+Thanks for playing!"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -135,6 +179,11 @@ autostart = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 pause_mode = 2
 anims/RollCredits = SubResource( 1 )
+
+[node name="credits" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -15.0
+bus = "BGM"
 
 [connection signal="overloaded" from="CooldownManager" to="Robot" method="_on_CooldownManager_overloaded"]
 [connection signal="next_pressed" from="CanvasLayer/EndStage" to="." method="_on_EndStage_next_pressed"]

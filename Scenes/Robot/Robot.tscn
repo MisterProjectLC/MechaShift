@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Robot/Robot.gd" type="Script" id=2]
@@ -18,6 +18,8 @@
 [ext_resource path="res://Assets/Sounds/vfx_mechashift_charge_dash.mp3" type="AudioStream" id=16]
 [ext_resource path="res://Assets/Sounds/vfx_mechashift_charge.mp3" type="AudioStream" id=17]
 [ext_resource path="res://Assets/Sounds/vfx_mechashift_teleport.mp3" type="AudioStream" id=18]
+[ext_resource path="res://Scenes/Robot/Explosion.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Assets/Sounds/vfx_mechashift_overload.mp3" type="AudioStream" id=20]
 [ext_resource path="res://Assets/Sounds/vfx_mechashift_broke.mp3" type="AudioStream" id=21]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -75,6 +77,7 @@ rocket_velocity = 1200.0
 rocket_knockback = 800.0
 charge_multiplier = 30.0
 charge_load_rate = 100.0
+explosion = ExtResource( 19 )
 
 [node name="Head" type="Node2D" parent="."]
 position = Vector2( 1.35537, -1.60454 )
@@ -150,6 +153,7 @@ anims/TeleportEnd = SubResource( 3 )
 "SFX",
 ]]
 stream = ExtResource( 9 )
+bus = "SFX"
 
 [node name="sfx_shoot_hook" type="AudioStreamPlayer" parent="." groups=[
 "SFX",
@@ -157,54 +161,63 @@ stream = ExtResource( 9 )
 stream = ExtResource( 9 )
 volume_db = -5.0
 pitch_scale = 2.0
+bus = "SFX"
 
 [node name="sfx_charge" type="AudioStreamPlayer" parent="." groups=[
 "SFX",
 ]]
 stream = SubResource( 4 )
 volume_db = -20.0
+bus = "SFX"
 
 [node name="sfx_charge_blast" type="AudioStreamPlayer" parent="." groups=[
 "SFX",
 ]]
 stream = ExtResource( 16 )
 volume_db = -15.0
+bus = "SFX"
 
 [node name="sfx_bounce" type="AudioStreamPlayer" parent="." groups=[
 "SFX",
 ]]
 stream = SubResource( 5 )
 volume_db = -8.0
+bus = "SFX"
 
 [node name="sfx_bounce_on" type="AudioStreamPlayer" parent="." groups=[
 "SFX",
 ]]
 stream = ExtResource( 15 )
 volume_db = -3.0
+bus = "SFX"
 
 [node name="sfx_bounce_off" type="AudioStreamPlayer" parent="." groups=[
 "SFX",
 ]]
 stream = ExtResource( 14 )
 volume_db = -3.0
+bus = "SFX"
 
 [node name="sfx_grav_on" type="AudioStreamPlayer" parent="." groups=[
 "SFX",
 ]]
 stream = ExtResource( 12 )
 volume_db = -3.0
+bus = "SFX"
 
 [node name="sfx_grav_off" type="AudioStreamPlayer" parent="." groups=[
 "SFX",
 ]]
 stream = ExtResource( 11 )
 volume_db = -3.0
+bus = "SFX"
 
 [node name="sfx_teleport" type="AudioStreamPlayer" parent="." groups=[
 "SFX",
 ]]
 stream = ExtResource( 18 )
 volume_db = -8.0
+bus = "SFX"
 
 [node name="BouncyTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -215,6 +228,14 @@ autostart = true
 ]]
 stream = ExtResource( 21 )
 volume_db = -5.0
+bus = "SFX"
+
+[node name="sfx_goodoverload" type="AudioStreamPlayer" parent="." groups=[
+"SFX",
+]]
+stream = ExtResource( 20 )
+volume_db = -5.0
+bus = "SFX"
 
 [connection signal="on_collision" from="Wheel" to="." method="_on_Wheel_on_collision"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -20,7 +20,7 @@ func _on_Options_button_up():
 
 func _on_Quit_button_up():
 	play = false
-	$AnimationPlayer.play("CloseFromLeft")
+	Transitions.play("CloseFromLeft")
 
 
 func _on_Close_button_up():

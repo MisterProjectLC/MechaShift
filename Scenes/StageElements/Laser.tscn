@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/StageElements/Laser.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Sounds/vfx_mechashift_spark.mp3" type="AudioStream" id=5]
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 25.2438
 height = 0.0
 
@@ -28,7 +28,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EmitterA"]
 position = Vector2( 2.08112, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -70,7 +70,7 @@ sleeping = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EmitterB"]
 position = Vector2( 2.08112, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -94,6 +94,7 @@ one_shot = true
 ]]
 stream = ExtResource( 5 )
 volume_db = -5.0
+bus = "SFX"
 
 [connection signal="body_entered" from="EmitterA/Laser" to="." method="_on_Laser_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

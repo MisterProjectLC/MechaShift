@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/vfx_mechashift_overload.mp3-5197319891e9b40412a64da16755aaa3.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/vfx_mechashift_overload.mp3"
+dest_files=[ "res://.import/vfx_mechashift_overload.mp3-5197319891e9b40412a64da16755aaa3.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

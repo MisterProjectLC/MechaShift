@@ -23,6 +23,7 @@ var _bouncy = false
 var _teleport_pos = Vector2.ZERO
 var _stored_gravity = 0
 var _stored_charge = 0
+var overload_active = true
 
 # attributes
 export(float) var wheel_velocity = 10
@@ -35,6 +36,7 @@ export(float) var bounce_inital_push = 50
 export(float) var charge_multiplier = 20
 export(float) var charge_load_rate = 50
 export(float) var camera_limit_speed = 400
+export(PackedScene) var explosion
 
 var last_velocity = Vector2.ZERO
 
@@ -81,6 +83,7 @@ func _physics_process(delta):
 	control_bounce()
 	control_teleport()
 	control_charge(delta)
+	control_overload()
 
 
 func control_wheel(delta):
@@ -204,6 +207,22 @@ func control_charge(delta):
 				increase_cooldown(Global.CHARGE)
 				_stored_charge = 0
 				$Pointer/ChargeBar.visible = false
+
+
+func control_overload():
+	if Input.is_action_pressed("overload"):
+		if !overload_active:
+			return
+		
+		$sfx_goodoverload.play()
+		overload_active = false
+		CooldownManager.restore_everything()
+		var new = explosion.instance()
+		add_child(new)
+		move_child(new, get_child_count()-1)
+		randomize()
+		new.global_position = Wheel.position + Vector2((randi() % 4) - 2, (randi() % 4) - 2)
+		UI.activate_overload()
 
 
 func _on_Wheel_on_collision(collision_normal):
