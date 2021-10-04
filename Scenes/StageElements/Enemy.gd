@@ -40,12 +40,16 @@ func _on_RocketTimer_timeout():
 
 func _on_Body_body_entered(body):
 	if body.is_in_group("Wall"):
-		var new = death_explosion.instance()
-		get_parent().add_child(new)
-		get_parent().move_child(new, get_parent().get_child_count()-1)
-		new.global_position = Body.global_position
-		queue_free()
+		explode()
 	else:
 		$sfx.play()
 		_broken_rotor = true
 		Body.gravity_scale = 12
+
+
+func explode():
+	var new = death_explosion.instance()
+	get_parent().add_child(new)
+	get_parent().move_child(new, get_parent().get_child_count()-1)
+	new.global_position = Body.global_position
+	queue_free()

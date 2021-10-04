@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/Fonts/Menu.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/MenuButton.gd" type="Script" id=2]
@@ -10,8 +10,9 @@
 [ext_resource path="res://Assets/Art/Misc/Fundo1.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Art/Misc/Fundo3.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Art/Misc/Title.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Music/MenuV3.mp3" type="AudioStream" id=11]
-[ext_resource path="res://Scenes/HSlider.gd" type="Script" id=12]
+[ext_resource path="res://Assets/Art/Menu/SmallMenuButtonHover.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Art/Menu/SmallMenuButtonPressed.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Art/Menu/SmallMenuButton.png" type="Texture" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Hover"
@@ -80,6 +81,86 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=5]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 163.0, 163.0 ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 163.0, 163.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 163.0, 163.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 163.0, 163.0 ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 163.0, 163.0 ]
+}
+
+[sub_resource type="Animation" id=15]
 resource_name = "OptionsClose"
 length = 0.2
 tracks/0/type = "value"
@@ -92,7 +173,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Options:modulate")
@@ -107,7 +188,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Options:visible")
@@ -134,7 +215,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Options:visible")
@@ -159,6 +240,102 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "StagesClose"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Levels:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Levels:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "StagesOpen"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Levels:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Levels:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "StagesOpenNormal"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Options:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Levels:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Levels:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [node name="Main Menu" type="Control"]
@@ -299,6 +476,7 @@ __meta__ = {
 
 [node name="Options" type="Control" parent="."]
 visible = false
+modulate = Color( 1, 1, 1, 0 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -403,10 +581,237 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Levels" type="Control" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -36.2048
+margin_top = -186.155
+margin_right = -740.205
+margin_bottom = -4.15485
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stages" type="Label" parent="Levels"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -107.785
+margin_top = 34.8182
+margin_right = 92.2153
+margin_bottom = 51.8182
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 7 )
+text = "Stages"
+align = 1
+valign = 1
+
+[node name="Close" type="TextureButton" parent="Levels"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -64.7491
+margin_top = 116.02
+margin_right = 63.2509
+margin_bottom = 148.02
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Levels/Close"]
+anims/Hover = SubResource( 5 )
+
+[node name="Tween" type="Tween" parent="Levels/Close"]
+
+[node name="Label" type="Label" parent="Levels/Close"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+custom_fonts/font = ExtResource( 1 )
+text = "Close"
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Levels"]
+margin_left = 77.4648
+margin_top = 44.5892
+margin_right = 234.465
+margin_bottom = 112.589
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PhaseT" type="TextureButton" parent="Levels/HBoxContainer"]
+margin_left = 2.0
+margin_top = 18.0
+margin_right = 34.0
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 11 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Levels/HBoxContainer/PhaseT"]
+anims/Hover = SubResource( 11 )
+
+[node name="Tween" type="Tween" parent="Levels/HBoxContainer/PhaseT"]
+
+[node name="Label" type="Label" parent="Levels/HBoxContainer/PhaseT"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.07138
+margin_top = 0.280609
+margin_right = -3.92862
+margin_bottom = 0.280609
+custom_fonts/font = ExtResource( 1 )
+text = "T"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Phase1" type="TextureButton" parent="Levels/HBoxContainer"]
+margin_left = 42.0
+margin_top = 18.0
+margin_right = 74.0
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 11 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Levels/HBoxContainer/Phase1"]
+anims/Hover = SubResource( 6 )
+
+[node name="Tween" type="Tween" parent="Levels/HBoxContainer/Phase1"]
+
+[node name="Label" type="Label" parent="Levels/HBoxContainer/Phase1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.07138
+margin_top = 0.280609
+margin_right = -3.92862
+margin_bottom = 0.280609
+custom_fonts/font = ExtResource( 1 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Phase2" type="TextureButton" parent="Levels/HBoxContainer"]
+margin_left = 82.0
+margin_top = 18.0
+margin_right = 114.0
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 11 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Levels/HBoxContainer/Phase2"]
+anims/Hover = SubResource( 10 )
+
+[node name="Tween" type="Tween" parent="Levels/HBoxContainer/Phase2"]
+
+[node name="Label" type="Label" parent="Levels/HBoxContainer/Phase2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.07138
+margin_top = 0.280609
+margin_right = -3.92862
+margin_bottom = 0.280609
+custom_fonts/font = ExtResource( 1 )
+text = "2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Phase3" type="TextureButton" parent="Levels/HBoxContainer"]
+margin_left = 122.0
+margin_top = 18.0
+margin_right = 154.0
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 11 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Levels/HBoxContainer/Phase3"]
+anims/Hover = SubResource( 12 )
+
+[node name="Tween" type="Tween" parent="Levels/HBoxContainer/Phase3"]
+
+[node name="Label" type="Label" parent="Levels/HBoxContainer/Phase3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.07138
+margin_top = 0.280609
+margin_right = -3.92862
+margin_bottom = 0.280609
+custom_fonts/font = ExtResource( 1 )
+text = "3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/OptionsClose = SubResource( 5 )
-anims/OptionsOpen = SubResource( 6 )
-anims/OptionsOpenNormal = SubResource( 7 )
+anims/OptionsClose = SubResource( 15 )
+anims/OptionsOpen = SubResource( 8 )
+anims/OptionsOpenNormal = SubResource( 9 )
+anims/StagesClose = SubResource( 16 )
+anims/StagesOpen = SubResource( 13 )
+anims/StagesOpenNormal = SubResource( 14 )
 
 [node name="bgm" type="AudioStreamPlayer" parent="." groups=[
 "BGM",
@@ -420,3 +825,8 @@ bus = "BGM"
 [connection signal="button_up" from="Menu/Options" to="." method="_on_Options_button_up"]
 [connection signal="button_up" from="Menu/Quit" to="." method="_on_Quit_button_up"]
 [connection signal="button_up" from="Options/Close" to="." method="_on_Close_button_up"]
+[connection signal="button_up" from="Levels/Close" to="." method="_on_Close_button_up"]
+[connection signal="button_up" from="Levels/HBoxContainer/PhaseT" to="." method="_on_PhaseT_button_up"]
+[connection signal="button_up" from="Levels/HBoxContainer/Phase1" to="." method="_on_Phase1_button_up"]
+[connection signal="button_up" from="Levels/HBoxContainer/Phase2" to="." method="_on_Phase2_button_up"]
+[connection signal="button_up" from="Levels/HBoxContainer/Phase3" to="." method="_on_Phase3_button_up"]

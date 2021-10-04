@@ -1,22 +1,24 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Robot/Explosion.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Robot/RocketEnemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/StageElements/Enemy.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Art/Player/pointer.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Art/Misc/player-cannon.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Art/Misc/EnemyRed.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Art/Misc/EnemyViolet.png" type="Texture" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 50.0
 
-[node name="Enemy" type="Node2D"]
+[node name="SuperEnemy" type="Node2D"]
 script = ExtResource( 3 )
 rocket = ExtResource( 2 )
 death_explosion = ExtResource( 1 )
-rocket_velocity = 600
+rocket_velocity = 650
 
-[node name="Body" type="RigidBody2D" parent="."]
+[node name="Body" type="RigidBody2D" parent="." groups=[
+"Enemy",
+]]
 collision_layer = 16
 collision_mask = 7
 mass = 0.1
@@ -26,12 +28,18 @@ contact_monitor = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
 shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Body"]
 texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="RocketTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 1.5
 autostart = true
 
 [node name="Pointer" type="Sprite" parent="."]
@@ -41,12 +49,10 @@ offset = Vector2( 64, 0 )
 [node name="Sprite2" type="Sprite" parent="Pointer"]
 position = Vector2( 117.594, 14.5244 )
 texture = ExtResource( 5 )
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="sfx" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 7 )
+[node name="Sprite3" type="Sprite" parent="Pointer"]
+position = Vector2( 140.298, 14.5244 )
+texture = ExtResource( 5 )
 
 [connection signal="body_entered" from="Body" to="." method="_on_Body_body_entered"]
 [connection signal="timeout" from="RocketTimer" to="." method="_on_RocketTimer_timeout"]
