@@ -1,6 +1,7 @@
 extends Node2D
 
 var time = 0
+var expecting_transition = false
 
 var stages = [
 			{"scene":preload("res://Scenes/Stages/Stage0.tscn")},
@@ -20,7 +21,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("reload"):
 		Global.should_advance_stage = true
-		Transitions.play("CloseFromLeft")
+		run_transition()
 
 
 func _on_Timer_timeout():
@@ -48,12 +49,12 @@ func stage_ended():
 	if Global.current_stage >= len(stages):
 		$AnimationPlayer.play("RollCredits")
 	else:
-		Transitions.play("CloseFromLeft")
+		run_transition()
 
 
 func transition_finished(anim_name):
-	if anim_name == "CloseFromLeft" and visible:
-		print_debug(Global.should_advance_stage)
+	if anim_name == "CloseFromLeft" and visible and expecting_transition:
+		expecting_transition = false
 		if Global.should_advance_stage:
 			Global.should_advance_stage = false
 			get_tree().reload_current_scene()
@@ -69,4 +70,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func _on_EndStage_next_pressed():
+	run_transition()
+
+
+func run_transition():
+	expecting_transition = true
 	Transitions.play("CloseFromLeft")
