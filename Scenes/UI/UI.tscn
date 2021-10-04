@@ -464,14 +464,13 @@ __meta__ = {
 }
 
 [node name="Time" type="Label" parent="Background"]
-visible = false
 anchor_bottom = 1.0
-margin_left = 523.912
+margin_left = 594.467
 margin_top = -0.224976
-margin_right = 694.912
+margin_right = 765.467
 margin_bottom = -0.224976
 custom_fonts/font = SubResource( 1 )
-text = "5:32"
+text = "00:00"
 align = 1
 valign = 1
 __meta__ = {
@@ -504,42 +503,6 @@ margin_left = -255.702
 margin_top = -253.192
 margin_right = -11.7024
 margin_bottom = 134.808
-grow_horizontal = 0
-grow_vertical = 0
-rect_scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 20 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Coil2" type="TextureRect" parent="Background"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -316.315
-margin_top = -254.315
-margin_right = -72.3153
-margin_bottom = 133.685
-grow_horizontal = 0
-grow_vertical = 0
-rect_scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 20 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Coil3" type="TextureRect" parent="Background"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -378.051
-margin_top = -254.315
-margin_right = -134.051
-margin_bottom = 133.685
 grow_horizontal = 0
 grow_vertical = 0
 rect_scale = Vector2( 0.8, 0.8 )

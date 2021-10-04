@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/MenuButton.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Art/Menu/MenuButton.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Art/Menu/MenuButtonPressed.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Art/Menu/MenuButtonHover.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Fonts/Menu.tres" type="DynamicFont" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Hover"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 163.0, 163.0 ]
+}
+
+[node name="Play" type="TextureButton"]
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Hover = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+custom_fonts/font = ExtResource( 5 )
+text = "Play"
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}

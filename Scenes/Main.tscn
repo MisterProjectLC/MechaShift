@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Fonts/Stage.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/Robot/Robot.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Art/Misc/Fundo1.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Art/Misc/Fundo3.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/UI/EndStageCard.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "RollCredits"
@@ -37,11 +38,14 @@ tracks/1/keys = {
 }
 
 [node name="Main" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 5 )
 
 [node name="Robot" parent="." instance=ExtResource( 2 )]
+pause_mode = 1
 CooldownManagerPath = NodePath("../CooldownManager")
 UIPath = NodePath("../CanvasLayer/UI")
+charge_multiplier = 25.0
 
 [node name="CooldownManager" parent="." instance=ExtResource( 4 )]
 UIPath = NodePath("../CanvasLayer/UI")
@@ -56,16 +60,18 @@ margin_right = 1024.74
 margin_bottom = 505.932
 texture = ExtResource( 6 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect2" type="TextureRect" parent="BackgroundCanvas"]
-modulate = Color( 0, 0, 0, 1 )
+modulate = Color( 0, 0, 0, 0.756863 )
 margin_top = -98.4189
 margin_right = 1024.0
 margin_bottom = 501.581
 texture = ExtResource( 7 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -74,6 +80,7 @@ __meta__ = {
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 3 )]
 
 [node name="Credits" type="Control" parent="CanvasLayer"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -86,7 +93,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -96,7 +103,7 @@ __meta__ = {
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = -0.0454102
-margin_top = -912.0
+margin_top = 300.0
 margin_right = 1015.95
 margin_bottom = 1036.37
 custom_fonts/font = ExtResource( 1 )
@@ -117,10 +124,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="EndStage" parent="CanvasLayer" instance=ExtResource( 8 )]
+pause_mode = 2
+visible = false
+
 [node name="Timer" type="Timer" parent="."]
+pause_mode = 1
+autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+pause_mode = 2
 anims/RollCredits = SubResource( 1 )
 
+[connection signal="next_pressed" from="CanvasLayer/EndStage" to="." method="_on_EndStage_next_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

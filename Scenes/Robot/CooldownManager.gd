@@ -6,9 +6,9 @@ onready var UI = get_node(UIPath)
 const min_value = 0
 const max_value = 100
 
-var cooldowns = {Global.HOOK:[0, false, 25], Global.ROCKET:[0, false, 25], 
-					Global.BOUNCE:[0, false, 10], Global.ANTI:[0, false, 20], 
-					Global.TELEPORT:[0, false, 50], Global.CHARGE:[0, false, 40]}
+var cooldowns = {Global.HOOK:[0, false, 35], Global.ROCKET:[0, false, 20], 
+					Global.BOUNCE:[0, false, 4], Global.ANTI:[0, false, 20], 
+					Global.TELEPORT:[0, false, 70], Global.CHARGE:[0, false, 55]}
 
 signal overloaded
 

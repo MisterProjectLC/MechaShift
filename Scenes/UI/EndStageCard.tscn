@@ -1,0 +1,152 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scenes/UI/EndStageCard.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/MenuButton.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Fonts/Menu.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Art/Menu/MenuButton.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Art/Menu/MenuButtonPressed.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Art/Menu/MenuButtonHover.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Fonts/MenuBig.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Assets/Art/Misc/Fundo1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Art/Misc/Fundo3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Art/Misc/Title.png" type="Texture" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Hover"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 163.0, 163.0 ]
+}
+
+[node name="EndStage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource( 8 )
+flip_v = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Background2" type="TextureRect" parent="."]
+modulate = Color( 0, 0, 0, 0.760784 )
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Background3" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_top = -61.9086
+margin_bottom = 438.091
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -73.5
+margin_top = -44.5408
+margin_right = 73.5
+margin_bottom = -4.54077
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 7 )
+text = "STAGE 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -125.0
+margin_top = 11.4592
+margin_right = 130.0
+margin_bottom = 51.4592
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 7 )
+text = "Time: 100"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Next" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = 84.8571
+margin_right = 64.0
+margin_bottom = 116.857
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Next"]
+anims/Hover = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="Next"]
+
+[node name="Label" type="Label" parent="Next"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+custom_fonts/font = ExtResource( 3 )
+text = "Next Stage"
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="Next" to="." method="_on_Next_button_up"]

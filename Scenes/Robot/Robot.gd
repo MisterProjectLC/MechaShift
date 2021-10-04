@@ -84,7 +84,6 @@ func _physics_process(delta):
 
 
 func control_wheel(delta):
-	var still = true
 	if Input.is_action_pressed("roll_left"):
 		Wheel.angular_velocity -= wheel_velocity*delta * clamp(Wheel.gravity_scale, -1, 1)
 	elif Wheel.angular_velocity * Wheel.gravity_scale < 0:
