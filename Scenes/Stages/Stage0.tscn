@@ -158,6 +158,7 @@ margin_top = -132.114
 margin_right = 862.772
 margin_bottom = -67.1144
 custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 0.8, 0.815686, 1 )
 text = "A and D to spin your wheel"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -169,6 +170,7 @@ margin_top = -49.443
 margin_right = 2077.71
 margin_bottom = 83.557
 custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 0.8, 0.815686, 1 )
 text = "Space to toggle 
 bouncing"
 __meta__ = {
@@ -181,6 +183,7 @@ margin_top = 133.432
 margin_right = 4365.57
 margin_bottom = 198.432
 custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 0.8, 0.815686, 1 )
 text = "Shift to invert gravity"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -192,6 +195,7 @@ margin_top = -561.963
 margin_right = 5969.8
 margin_bottom = -360.963
 custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 0.8, 0.815686, 1 )
 text = "Hold Ctrl to load a charge.
 Release to launch towards the
 mouse."
@@ -205,6 +209,7 @@ margin_top = -420.486
 margin_right = 9213.28
 margin_bottom = -355.486
 custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 0.8, 0.815686, 1 )
 text = "Press Mouse 1 to launch a rocket."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -216,6 +221,7 @@ margin_top = -582.36
 margin_right = 11549.1
 margin_bottom = -381.36
 custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 0.8, 0.815686, 1 )
 text = "Press Mouse 2 to launch a grappling hook.
 Hold W and S to adjust its length.
 Press Mouse 2 again to retract it."
@@ -229,18 +235,20 @@ margin_top = -552.689
 margin_right = 13370.2
 margin_bottom = -419.689
 custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 0.8, 0.815686, 1 )
 text = "Press Mouse 3 (Middle Button) to 
 teleport to the mouse pointer."
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Teleport2" type="Label" parent="Tutorial Signs"]
+[node name="Meter" type="Label" parent="Tutorial Signs"]
 margin_left = 15831.9
 margin_top = -362.013
 margin_right = 16863.9
 margin_bottom = -25.0128
 custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 0.8, 0.815686, 1 )
 text = "Every power has a meter, shown
 on the bottom part of the screen.
 When it reaches 100%, it overloads
