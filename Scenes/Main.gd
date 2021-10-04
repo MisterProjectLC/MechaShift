@@ -2,9 +2,13 @@ extends Node2D
 
 var time = 20
 
-var stages = [{"scene":preload("res://Scenes/Stages/Stage0.tscn"), "":""}]
+var stages = [
+			{"scene":preload("res://Scenes/Stages/Stage0.tscn")},
+			{"scene":preload("res://Scenes/Stages/Stage1.tscn")}
+			]
 
 func _ready():
+	Transitions.connect("transition_finished", self, "transition_finished")
 	open_scene()
 
 func _on_Timer_timeout():
@@ -28,4 +32,12 @@ func stage_ended():
 	if Global.current_stage >= len(stages):
 		$AnimationPlayer.play("RollCredits")
 	else:
-		get_tree().reload_current_scene()
+		Transitions.play("CloseFromLeft")
+
+
+func transition_finished(anim_name):
+	get_tree().reload_current_scene()
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	get_tree().change_scene("res://Scenes/MainMenu.tscn")

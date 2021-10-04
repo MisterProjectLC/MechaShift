@@ -1,13 +1,18 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/StageElements/Car.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/StageElements/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/StageElements/OutdoorRock.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/StageElements/TruckRed.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/StageElements/Truck.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Fonts/Stage.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Scenes/StageElements/Bus.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/StageElements/Outdoor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/StageElements/CarDark.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Stages/Stage0.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Tilemap/Tileset.tres" type="TileSet" id=11]
+[ext_resource path="res://Scenes/StageElements/CarViolet.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/StageElements/CarRed.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 300, 2000 )
@@ -34,17 +39,11 @@ __meta__ = {
 [node name="Car" parent="Objects" instance=ExtResource( 1 )]
 position = Vector2( 3025.89, -323.133 )
 
-[node name="Car2" parent="Objects" instance=ExtResource( 1 )]
-position = Vector2( 4815.81, -859.093 )
-
 [node name="Car3" parent="Objects" instance=ExtResource( 1 )]
 position = Vector2( 9979.63, -395.431 )
 
 [node name="Car4" parent="Objects" instance=ExtResource( 1 )]
 position = Vector2( 6213.05, 243.994 )
-
-[node name="Car5" parent="Objects" instance=ExtResource( 1 )]
-position = Vector2( 11353.1, 689.865 )
 
 [node name="Car8" parent="Objects" instance=ExtResource( 1 )]
 position = Vector2( 20317.4, 433.128 )
@@ -52,17 +51,8 @@ position = Vector2( 20317.4, 433.128 )
 [node name="Car9" parent="Objects" instance=ExtResource( 1 )]
 position = Vector2( 18966.4, -408.783 )
 
-[node name="Car10" parent="Objects" instance=ExtResource( 1 )]
-position = Vector2( 20877.6, 860.143 )
-
-[node name="Car11" parent="Objects" instance=ExtResource( 1 )]
-position = Vector2( 21211.2, -261.462 )
-
 [node name="Car6" parent="Objects" instance=ExtResource( 1 )]
 position = Vector2( 11595.7, 946.734 )
-
-[node name="Car7" parent="Objects" instance=ExtResource( 1 )]
-position = Vector2( 11933.5, 418.726 )
 
 [node name="Truck" parent="Objects" instance=ExtResource( 5 )]
 position = Vector2( 1614.18, -529.567 )
@@ -73,17 +63,8 @@ position = Vector2( 5724.23, -1974.96 )
 [node name="Truck3" parent="Objects" instance=ExtResource( 5 )]
 position = Vector2( 7030.75, -1819.13 )
 
-[node name="Truck6" parent="Objects" instance=ExtResource( 5 )]
-position = Vector2( 12979.4, -1152.37 )
-
 [node name="Truck7" parent="Objects" instance=ExtResource( 5 )]
 position = Vector2( 17901.3, -1379.04 )
-
-[node name="Truck8" parent="Objects" instance=ExtResource( 5 )]
-position = Vector2( 20239.9, -794.639 )
-
-[node name="Truck4" parent="Objects" instance=ExtResource( 5 )]
-position = Vector2( 8094.25, -1143.87 )
 
 [node name="Truck5" parent="Objects" instance=ExtResource( 5 )]
 position = Vector2( 11690.2, -894.388 )
@@ -100,26 +81,17 @@ position = Vector2( 9066.24, -1519.84 )
 [node name="Bus4" parent="Objects" instance=ExtResource( 7 )]
 position = Vector2( 22081.3, -1219.71 )
 
-[node name="Bus5" parent="Objects" instance=ExtResource( 7 )]
-position = Vector2( 23774.4, -775.15 )
-
 [node name="Bus6" parent="Objects" instance=ExtResource( 7 )]
 position = Vector2( 25315.8, -669.429 )
 
 [node name="Bus7" parent="Objects" instance=ExtResource( 7 )]
 position = Vector2( 27013.8, -685.124 )
 
-[node name="Outdoor" parent="Objects" instance=ExtResource( 8 )]
-position = Vector2( 7433.6, -1133.22 )
-
 [node name="Outdoor2" parent="Objects" instance=ExtResource( 8 )]
 position = Vector2( 4876.7, -1664.97 )
 
 [node name="Outdoor3" parent="Objects" instance=ExtResource( 8 )]
 position = Vector2( 9471.76, -1040.31 )
-
-[node name="Outdoor4" parent="Objects" instance=ExtResource( 8 )]
-position = Vector2( 13577.8, -604.068 )
 
 [node name="Outdoor5" parent="Objects" instance=ExtResource( 8 )]
 position = Vector2( 12329.2, -1076.9 )
@@ -129,9 +101,6 @@ position = Vector2( 17183.5, -500.568 )
 
 [node name="Outdoor7" parent="Objects" instance=ExtResource( 8 )]
 position = Vector2( 29128.2, 161.661 )
-
-[node name="Outdoor8" parent="Objects" instance=ExtResource( 8 )]
-position = Vector2( 29128.2, -476.248 )
 
 [node name="Outdoor9" parent="Objects" instance=ExtResource( 8 )]
 position = Vector2( 29127.7, -1116.95 )
@@ -275,6 +244,42 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndStage"]
 position = Vector2( 988.527, -2464.15 )
 shape = SubResource( 1 )
+
+[node name="Outdoor" parent="." instance=ExtResource( 3 )]
+position = Vector2( 7450.05, -1135.05 )
+
+[node name="Truck" parent="." instance=ExtResource( 4 )]
+position = Vector2( 8090.18, -1060.58 )
+
+[node name="Outdoor2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 29129.3, -473.193 )
+
+[node name="Truck2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 23641.6, -941.089 )
+
+[node name="Truck3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 20096.9, -926.764 )
+
+[node name="Outdoor3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 13528.7, -584.933 )
+
+[node name="Truck4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 12965, -1172.88 )
+
+[node name="Car" parent="." instance=ExtResource( 9 )]
+position = Vector2( 11380.1, 718.02 )
+
+[node name="Car2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 11986.6, 512.169 )
+
+[node name="Car3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 4819.82, -838.156 )
+
+[node name="Car4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 20826, 810.578 )
+
+[node name="Car5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 21320.6, -226.573 )
 
 [connection signal="body_entered" from="ActivateCooldowns" to="." method="_on_ActivateCooldowns_body_entered"]
 [connection signal="body_entered" from="EndStage" to="." method="_on_EndStage_body_entered"]
