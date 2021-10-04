@@ -371,6 +371,13 @@ anims/OptionsClose = SubResource( 5 )
 anims/OptionsOpen = SubResource( 6 )
 anims/OptionsOpenNormal = SubResource( 7 )
 
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="button_up" from="Menu/Play" to="." method="_on_Play_button_up"]
 [connection signal="button_up" from="Menu/Options" to="." method="_on_Options_button_up"]
 [connection signal="button_up" from="Menu/Quit" to="." method="_on_Quit_button_up"]

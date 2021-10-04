@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Robot/Explosion.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sounds/vfx_mechashift_boom.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/Effects/Explosion.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -49,6 +50,7 @@ scale = Vector2( 10, 10 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 
@@ -60,6 +62,8 @@ anims/Explosion = SubResource( 2 )
 stream = SubResource( 3 )
 volume_db = -5.0
 autoplay = true
+
+[node name="Explosion" parent="." instance=ExtResource( 4 )]
 
 [connection signal="body_entered" from="." to="." method="_on_Explosion_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
