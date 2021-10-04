@@ -17,6 +17,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0, 1.0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/ColorRect:anchor_left")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "OpenFromRight"
@@ -33,6 +45,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0, 1.0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/ColorRect:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
 
 [node name="Transitions" type="Control"]
 pause_mode = 2
@@ -48,6 +72,8 @@ __meta__ = {
 layer = 2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )

@@ -109,9 +109,6 @@ position = Vector2( 9453.65, -469.325 )
 [node name="Enemy2" parent="Objects" instance=ExtResource( 2 )]
 position = Vector2( 22308.7, -113.515 )
 
-[node name="Enemy3" parent="Objects" instance=ExtResource( 2 )]
-position = Vector2( 755.482, -253.015 )
-
 [node name="Outdoor8" parent="Objects" instance=ExtResource( 8 )]
 position = Vector2( 29760, -512 )
 

@@ -19,14 +19,14 @@
 [ext_resource path="res://Scenes/StageElements/CarDark.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/StageElements/SuperEnemy.tscn" type="PackedScene" id=18]
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 25.2438
 height = 0.0
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 350, 24 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 300, 2000 )
 
 [node name="Stage3" type="Node2D"]
@@ -133,7 +133,7 @@ position = Vector2( 22224.6, -125.218 )
 position = Vector2( 22224.6, -125.218 )
 
 [node name="Car10" parent="Objects" instance=ExtResource( 1 )]
-position = Vector2( 30965.8, -1712.7 )
+position = Vector2( 31402.7, -923.267 )
 
 [node name="Car5" parent="Objects" instance=ExtResource( 3 )]
 position = Vector2( 21365.7, -462.581 )
@@ -191,7 +191,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Laser22/EmitterA"]
 position = Vector2( 2.08112, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -233,7 +233,7 @@ sleeping = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Laser22/EmitterB"]
 position = Vector2( 2.08112, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -295,7 +295,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Laser25/EmitterA"]
 position = Vector2( 2.08112, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -337,7 +337,7 @@ sleeping = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Laser25/EmitterB"]
 position = Vector2( 2.08112, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -411,10 +411,10 @@ position = Vector2( 27616.1, 902.92 )
 position = Vector2( 3352.59, -1714.39 )
 
 [node name="Spawn 2" type="Position2D" parent="Spawns"]
-position = Vector2( 3892.31, -2520.79 )
+position = Vector2( 3944.67, -1451.25 )
 
 [node name="Spawn 3" type="Position2D" parent="Spawns"]
-position = Vector2( 2025.52, -2577.94 )
+position = Vector2( 1659.71, -1816.36 )
 
 [node name="Spawn 4" type="Position2D" parent="Spawns"]
 position = Vector2( 2431.9, -1111.18 )
@@ -428,7 +428,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndFight"]
 position = Vector2( 1227.78, -1727.3 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [connection signal="body_entered" from="Objects/Laser22/EmitterA/Laser" to="Objects/Laser22" method="_on_Laser_body_entered"]
 [connection signal="timeout" from="Objects/Laser22/Timer" to="Objects/Laser22" method="_on_Timer_timeout"]

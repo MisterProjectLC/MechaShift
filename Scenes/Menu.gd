@@ -28,11 +28,7 @@ func _on_Close_button_up():
 
 
 func transition_finished(anim_name):
-	if anim_name == "CloseFromLeft" and visible:
-		if play:
-			get_tree().change_scene("res://Scenes/Main.tscn")
-		else:
-			get_tree().quit()
+	pass
 
 
 func _on_Sound_value_changed(value):

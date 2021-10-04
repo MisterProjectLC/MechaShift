@@ -96,22 +96,6 @@ tracks/0/keys = {
 "values": [ 163.0, 163.0 ]
 }
 
-[sub_resource type="Animation" id=11]
-length = 0.5
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:margin_left")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 163.0, 163.0 ]
-}
-
 [sub_resource type="Animation" id=6]
 length = 0.5
 loop = true
@@ -128,39 +112,55 @@ tracks/0/keys = {
 "values": [ 163.0, 163.0 ]
 }
 
+[sub_resource type="Animation" id=7]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 163.0, 163.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 163.0, 163.0 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 163.0, 163.0 ]
+}
+
 [sub_resource type="Animation" id=10]
-length = 0.5
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:margin_left")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 163.0, 163.0 ]
-}
-
-[sub_resource type="Animation" id=12]
-length = 0.5
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:margin_left")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 163.0, 163.0 ]
-}
-
-[sub_resource type="Animation" id=15]
 resource_name = "OptionsClose"
 length = 0.2
 tracks/0/type = "value"
@@ -188,7 +188,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=11]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Options:visible")
@@ -215,7 +215,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=12]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Options:visible")
@@ -242,7 +242,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=13]
 resource_name = "StagesClose"
 length = 0.2
 tracks/0/type = "value"
@@ -270,8 +270,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "StagesOpen"
+[sub_resource type="Animation" id=14]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Levels:modulate")
@@ -298,11 +297,10 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "StagesOpenNormal"
+[sub_resource type="Animation" id=15]
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("Options:modulate")
+tracks/0/path = NodePath("Levels:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -314,24 +312,12 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Levels:modulate")
+tracks/1/path = NodePath("Levels:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Levels:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -576,7 +562,7 @@ __meta__ = {
 }
 
 [node name="Levels" type="Control" parent="."]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -602,7 +588,7 @@ text = "Stages"
 align = 1
 valign = 1
 
-[node name="Close" type="TextureButton" parent="Levels"]
+[node name="CloseLevel" type="TextureButton" parent="Levels"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -64.7491
@@ -621,12 +607,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Levels/Close"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Levels/CloseLevel"]
 anims/Hover = SubResource( 5 )
 
-[node name="Tween" type="Tween" parent="Levels/Close"]
+[node name="Tween" type="Tween" parent="Levels/CloseLevel"]
 
-[node name="Label" type="Label" parent="Levels/Close"]
+[node name="Label" type="Label" parent="Levels/CloseLevel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -649,9 +635,9 @@ __meta__ = {
 
 [node name="PhaseT" type="TextureButton" parent="Levels/HBoxContainer"]
 margin_left = 2.0
-margin_top = 18.0
+margin_top = 17.0
 margin_right = 34.0
-margin_bottom = 50.0
+margin_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
@@ -665,7 +651,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Levels/HBoxContainer/PhaseT"]
-anims/Hover = SubResource( 11 )
+anims/Hover = SubResource( 6 )
 
 [node name="Tween" type="Tween" parent="Levels/HBoxContainer/PhaseT"]
 
@@ -687,9 +673,9 @@ __meta__ = {
 
 [node name="Phase1" type="TextureButton" parent="Levels/HBoxContainer"]
 margin_left = 42.0
-margin_top = 18.0
+margin_top = 17.0
 margin_right = 74.0
-margin_bottom = 50.0
+margin_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
@@ -703,7 +689,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Levels/HBoxContainer/Phase1"]
-anims/Hover = SubResource( 6 )
+anims/Hover = SubResource( 7 )
 
 [node name="Tween" type="Tween" parent="Levels/HBoxContainer/Phase1"]
 
@@ -725,9 +711,9 @@ __meta__ = {
 
 [node name="Phase2" type="TextureButton" parent="Levels/HBoxContainer"]
 margin_left = 82.0
-margin_top = 18.0
+margin_top = 17.0
 margin_right = 114.0
-margin_bottom = 50.0
+margin_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
@@ -741,7 +727,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Levels/HBoxContainer/Phase2"]
-anims/Hover = SubResource( 10 )
+anims/Hover = SubResource( 8 )
 
 [node name="Tween" type="Tween" parent="Levels/HBoxContainer/Phase2"]
 
@@ -763,9 +749,9 @@ __meta__ = {
 
 [node name="Phase3" type="TextureButton" parent="Levels/HBoxContainer"]
 margin_left = 122.0
-margin_top = 18.0
+margin_top = 17.0
 margin_right = 154.0
-margin_bottom = 50.0
+margin_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
@@ -779,7 +765,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Levels/HBoxContainer/Phase3"]
-anims/Hover = SubResource( 12 )
+anims/Hover = SubResource( 9 )
 
 [node name="Tween" type="Tween" parent="Levels/HBoxContainer/Phase3"]
 
@@ -800,12 +786,12 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/OptionsClose = SubResource( 15 )
-anims/OptionsOpen = SubResource( 8 )
-anims/OptionsOpenNormal = SubResource( 9 )
-anims/StagesClose = SubResource( 16 )
-anims/StagesOpen = SubResource( 13 )
-anims/StagesOpenNormal = SubResource( 14 )
+anims/OptionsClose = SubResource( 10 )
+anims/OptionsOpen = SubResource( 11 )
+anims/OptionsOpenNormal = SubResource( 12 )
+anims/StagesClose = SubResource( 13 )
+anims/StagesOpen = SubResource( 14 )
+anims/StagesOpenNormal = SubResource( 15 )
 
 [connection signal="button_up" from="Menu/Play" to="." method="_on_Play_button_up"]
 [connection signal="button_up" from="Menu/Options" to="." method="_on_Options_button_up"]
@@ -813,7 +799,7 @@ anims/StagesOpenNormal = SubResource( 14 )
 [connection signal="value_changed" from="Options/Sound" to="." method="_on_Sound_value_changed"]
 [connection signal="value_changed" from="Options/Music" to="." method="_on_Music_value_changed"]
 [connection signal="button_up" from="Options/Close" to="." method="_on_Close_button_up"]
-[connection signal="button_up" from="Levels/Close" to="." method="_on_Close_button_up"]
+[connection signal="button_up" from="Levels/CloseLevel" to="." method="_on_CloseLevel_button_up"]
 [connection signal="button_up" from="Levels/HBoxContainer/PhaseT" to="." method="_on_PhaseT_button_up"]
 [connection signal="button_up" from="Levels/HBoxContainer/Phase1" to="." method="_on_Phase1_button_up"]
 [connection signal="button_up" from="Levels/HBoxContainer/Phase2" to="." method="_on_Phase2_button_up"]
