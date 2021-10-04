@@ -20,7 +20,7 @@ func _on_EndFight_body_entered(body):
 		$Objects.add_child(new)
 		$Objects.move_child(new, $Objects.get_child_count()-1)
 		new.global_position = spawn.global_position
-		new.connect('tree_existing', self, 'boss_destroyed')
+		new.connect('tree_exiting', self, 'boss_destroyed')
 		bosses += 1
 	spawned = true
 

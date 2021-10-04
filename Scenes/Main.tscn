@@ -13,28 +13,28 @@
 resource_name = "RollCredits"
 length = 15.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/Credits/ColorRect:color")
+tracks/0/path = NodePath("CanvasLayer/Credits/Credits:margin_top")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 1.3, 14.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+"values": [ 300, 300, -2000 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CanvasLayer/Credits/Credits:margin_top")
+tracks/1/path = NodePath("CanvasLayer/Credits/TextureRect:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1, 1.3, 14.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 300, 300, -2000 ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="Main" type="Node2D"]
@@ -89,6 +89,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Credits"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Credits/TextureRect"]
+modulate = Color( 0, 0, 0, 0.647059 )
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Credits"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -102,10 +122,9 @@ __meta__ = {
 [node name="Credits" type="Label" parent="CanvasLayer/Credits"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = -0.0454102
 margin_top = 300.0
-margin_right = 1015.95
-margin_bottom = 1036.37
+margin_right = 1016.0
+margin_bottom = 1994.0
 custom_fonts/font = ExtResource( 1 )
 text = "CREDITS
 Anderson Garrote:

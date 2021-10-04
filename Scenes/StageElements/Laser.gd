@@ -33,7 +33,8 @@ func _on_Deactivate_timeout():
 
 func _on_Laser_body_entered(body):
 	if body.is_in_group("Player"):
-		$sfx_hit.play()
+		if $sfx_hit:
+			$sfx_hit.play()
 		# cursed but gets the job the done. It's a jam, after all
 		body.get_parent().increase_cooldown(Global.HOOK)
 		body.get_parent().increase_cooldown(Global.ROCKET)
