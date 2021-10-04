@@ -4,7 +4,8 @@ var flicker = true
 var play = true
 
 func _ready():
-	Transitions.connect("transition_finished", self, "transition_finished")
+	if !Transitions.is_connected("transition_finished", self, "transition_finished"): 
+		Transitions.connect("transition_finished", self, "transition_finished")
 
 func _on_Options_button_up():
 	if $Options.visible:
@@ -27,7 +28,7 @@ func _on_Close_button_up():
 
 
 func transition_finished(anim_name):
-	if anim_name == "CloseFromLeft":
+	if anim_name == "CloseFromLeft" and visible:
 		if play:
 			get_tree().change_scene("res://Scenes/Main.tscn")
 		else:

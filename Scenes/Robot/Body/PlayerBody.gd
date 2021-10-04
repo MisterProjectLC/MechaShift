@@ -2,7 +2,7 @@ extends Node2D
 
 onready var robot = get_parent().get_parent()
 
-func _process(delta):
+func _process(_delta):
 	if robot:
 		_update_animation()
 

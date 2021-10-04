@@ -16,7 +16,7 @@ onready var Bars = {Global.HOOK:get_node(HookBar), Global.ROCKET:get_node(Rocket
 
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("toggle_controls"):
 		$Controls.visible = !$Controls.visible
 	

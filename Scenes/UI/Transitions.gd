@@ -3,7 +3,7 @@ extends Control
 signal transition_finished
 
 func play(anim_name):
-	$AnimationPlayer.play("CloseFromLeft")
+	$AnimationPlayer.play(anim_name)
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
