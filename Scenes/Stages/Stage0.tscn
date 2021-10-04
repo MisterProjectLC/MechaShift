@@ -228,6 +228,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Meter2" type="Label" parent="Tutorial Signs"]
+margin_left = 27842.2
+margin_top = -54.1953
+margin_right = 28748.2
+margin_bottom = 350.805
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 0.8, 0.815686, 1 )
+text = "Press [ENTER] to OVERLOAD,
+restoring all your meters
+and causing an explosion 
+centered on you.
+You can only do that once per 
+phase."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ActivateCooldowns" type="Area2D" parent="."]
 position = Vector2( 15659.6, -919.77 )
 collision_layer = 0
