@@ -239,3 +239,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 func _on_Timer_timeout():
 	if _bouncy:
 		increase_cooldown(Global.BOUNCE)
+
+
+func set_left_limit(limit):
+	$Wheel/Camera2D.limit_left = limit
+
+func set_right_limit(limit):
+	$Wheel/Camera2D.limit_right = limit

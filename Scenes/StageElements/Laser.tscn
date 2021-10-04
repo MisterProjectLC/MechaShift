@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/Art/Misc/LaserEmitterActive.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/StageElements/Laser.gd" type="Script" id=4]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 25.2438
 height = 0.0
 
@@ -21,26 +21,42 @@ collision_mask = 27
 mass = 10000.0
 gravity_scale = 0.0
 sleeping = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EmitterA"]
 position = Vector2( 2.08112, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="EmitterA"]
 texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Laser" type="Area2D" parent="EmitterA"]
 z_index = 1
 collision_layer = 0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="EmitterA/Laser"]
-position = Vector2( 357.601, 0.0143127 )
-scale = Vector2( 10.5872, 1 )
+position = Vector2( 52.2913, 0.0143127 )
 texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 100, 64 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EmitterA/Laser"]
 position = Vector2( 349.296, -0.348297 )
 shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="EmitterB" type="RigidBody2D" parent="."]
 position = Vector2( 706.211, -0.154625 )
@@ -53,7 +69,7 @@ sleeping = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EmitterB"]
 position = Vector2( 2.08112, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -69,7 +85,7 @@ wait_time = 2.0
 autostart = true
 
 [node name="Deactivate" type="Timer" parent="."]
-wait_time = 0.8
+wait_time = 0.5
 one_shot = true
 
 [connection signal="body_entered" from="EmitterA/Laser" to="." method="_on_Laser_body_entered"]

@@ -5,7 +5,8 @@ var time = 0
 var stages = [
 			{"scene":preload("res://Scenes/Stages/Stage0.tscn")},
 			{"scene":preload("res://Scenes/Stages/Stage1.tscn")},
-			{"scene":preload("res://Scenes/Stages/Stage2.tscn")}
+			{"scene":preload("res://Scenes/Stages/Stage2.tscn")},
+			{"scene":preload("res://Scenes/Stages/Stage3.tscn")}
 			]
 
 func _ready():
@@ -16,9 +17,20 @@ func _ready():
 	open_scene()
 
 
+func _process(delta):
+	if Input.is_action_pressed("reload"):
+		Global.should_advance_stage = true
+		Transitions.play("CloseFromLeft")
+
+
 func _on_Timer_timeout():
 	time += 1
 	$CanvasLayer/UI.set_timer(time)
+
+
+func set_night():
+	$BackgroundCanvas/TextureRect.texture = preload("res://Assets/Art/Misc/Fundo2.png")
+	$BackgroundCanvas/TextureRect2.modulate = Color(1, 1, 1, 0.5)
 
 
 func open_scene():
