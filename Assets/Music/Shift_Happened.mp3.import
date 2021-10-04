@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Shift_Happened.mp3-54fbe82f5f44b194bd0a630624a9f935.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Shift_Happened.mp3"
+dest_files=[ "res://.import/Shift_Happened.mp3-54fbe82f5f44b194bd0a630624a9f935.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
