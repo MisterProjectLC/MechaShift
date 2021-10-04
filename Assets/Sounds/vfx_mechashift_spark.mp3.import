@@ -11,5 +11,5 @@ dest_files=[ "res://.import/vfx_mechashift_spark.mp3-e5520a00db6a88dd3119fd9ca60
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

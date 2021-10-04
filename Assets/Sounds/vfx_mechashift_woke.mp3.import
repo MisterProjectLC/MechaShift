@@ -11,5 +11,5 @@ dest_files=[ "res://.import/vfx_mechashift_woke.mp3-6beb6d895bc0e02447de78f7394c
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

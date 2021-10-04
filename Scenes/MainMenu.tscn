@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Fonts/Menu.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/MenuButton.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/Art/Misc/Fundo1.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Art/Misc/Fundo3.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Art/Misc/Title.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Music/MenuV3.mp3" type="AudioStream" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Hover"
@@ -313,7 +314,9 @@ anchor_right = 1.0
 margin_left = 100.0
 margin_top = 50.0
 margin_right = -100.0
-value = 100.0
+max_value = 1.0
+step = 0.1
+value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -340,7 +343,9 @@ anchor_right = 1.0
 margin_left = 100.0
 margin_top = 100.0
 margin_right = -100.0
-value = 100.0
+max_value = 1.0
+step = 0.1
+value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -365,6 +370,7 @@ __meta__ = {
 [node name="Close" type="TextureButton" parent="Options"]
 anchor_left = 0.5
 anchor_right = 0.5
+margin_left = 163.0
 margin_top = 300.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -400,9 +406,14 @@ anims/OptionsClose = SubResource( 5 )
 anims/OptionsOpen = SubResource( 6 )
 anims/OptionsOpenNormal = SubResource( 7 )
 
+[node name="bgm" type="AudioStreamPlayer" parent="." groups=[
+"BGM",
+]]
+stream = ExtResource( 11 )
+volume_db = -15.0
+autoplay = true
+
 [connection signal="button_up" from="Menu/Play" to="." method="_on_Play_button_up"]
 [connection signal="button_up" from="Menu/Options" to="." method="_on_Options_button_up"]
 [connection signal="button_up" from="Menu/Quit" to="." method="_on_Quit_button_up"]
-[connection signal="value_changed" from="Options/Sound" to="." method="_on_Sound_value_changed"]
-[connection signal="value_changed" from="Options/Music" to="." method="_on_Music_value_changed"]
 [connection signal="button_up" from="Options/Close" to="." method="_on_Close_button_up"]

@@ -83,7 +83,9 @@ texture = ExtResource( 2 )
 autoplay = "Explosion"
 anims/Explosion = SubResource( 2 )
 
-[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+[node name="sfx" type="AudioStreamPlayer2D" parent="." groups=[
+"SFX",
+]]
 stream = SubResource( 3 )
 volume_db = -5.0
 

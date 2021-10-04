@@ -31,7 +31,9 @@ position = Vector2( 95.5, 1.37458 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 
-[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+[node name="sfx" type="AudioStreamPlayer2D" parent="." groups=[
+"SFX",
+]]
 stream = ExtResource( 4 )
 autoplay = true
 

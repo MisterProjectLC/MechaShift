@@ -11,5 +11,5 @@ dest_files=[ "res://.import/vfx_mechashift_ui.mp3-495228039782647c260e235874cf46
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

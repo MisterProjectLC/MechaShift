@@ -46,5 +46,6 @@ func _on_Body_body_entered(body):
 		new.global_position = Body.global_position
 		queue_free()
 	else:
+		$sfx.play()
 		_broken_rotor = true
 		Body.gravity_scale = 12

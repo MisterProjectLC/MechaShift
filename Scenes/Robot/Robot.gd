@@ -224,6 +224,7 @@ func increase_cooldown(type):
 
 
 func _on_CooldownManager_overloaded(type):
+	$sfx_overload.play()
 	if type == Global.BOUNCE:
 		set_bouncy(false)
 	elif type == Global.HOOK:
