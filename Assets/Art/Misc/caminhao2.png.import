@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/outdoor.png-26d40c1782ae9a025def75a62908dc67.stex"
+path="res://.import/caminhao2.png-a7bdfda703750f2b6cd8df7243f10985.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Misc/outdoor.png"
-dest_files=[ "res://.import/outdoor.png-26d40c1782ae9a025def75a62908dc67.stex" ]
+source_file="res://Assets/Art/Misc/caminhao2.png"
+dest_files=[ "res://.import/caminhao2.png-a7bdfda703750f2b6cd8df7243f10985.stex" ]
 
 [params]
 

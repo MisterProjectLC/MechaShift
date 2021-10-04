@@ -34,6 +34,7 @@ export(float) var rocket_knockback = 200
 export(float) var bounce_inital_push = 50
 export(float) var charge_multiplier = 20
 export(float) var charge_load_rate = 50
+export(float) var camera_limit_speed = 400
 
 var last_velocity = Vector2.ZERO
 
@@ -43,6 +44,7 @@ var deactivation_enabled = true
 func _process(delta):
 	update()
 	
+	WheelCamera.limit_left += camera_limit_speed*delta
 	if (WheelCamera.limit_left > Wheel.position.x or 
 	WheelCamera.limit_top > Wheel.position.y or Wheel.position.y > WheelCamera.limit_bottom):
 		damage += delta

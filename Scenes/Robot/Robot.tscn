@@ -110,7 +110,7 @@ __meta__ = {
 [node name="Camera2D" type="Camera2D" parent="Wheel"]
 current = true
 zoom = Vector2( 3, 3 )
-limit_left = -300
+limit_left = -2000
 limit_top = -1500
 limit_bottom = 1500
 drag_margin_h_enabled = true

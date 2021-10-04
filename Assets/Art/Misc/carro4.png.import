@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/outdoor.png-26d40c1782ae9a025def75a62908dc67.stex"
+path="res://.import/carro4.png-2c4e5d73ea7afbc4a209828c892023b3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Misc/outdoor.png"
-dest_files=[ "res://.import/outdoor.png-26d40c1782ae9a025def75a62908dc67.stex" ]
+source_file="res://Assets/Art/Misc/carro4.png"
+dest_files=[ "res://.import/carro4.png-2c4e5d73ea7afbc4a209828c892023b3.stex" ]
 
 [params]
 
