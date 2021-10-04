@@ -147,10 +147,10 @@ func control_antigrav():
 		
 		if Wheel.gravity_scale < 0:
 			$sfx_grav_on.play()
-			$Head.rotation = 180
+			$Head.rotation_degrees = 180
 		else:
 			$sfx_grav_off.play()
-			$Head.rotation = 0
+			$Head.rotation_degrees = 0
 
 
 func control_bounce():

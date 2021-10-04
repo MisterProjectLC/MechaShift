@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Art/Misc/player-head.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Art/Misc/player-body.png" type="Texture" id=2]
@@ -7,69 +7,133 @@
 [ext_resource path="res://Assets/Art/Misc/player-coil.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Art/Misc/roda.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Art/Misc/player-cannon.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Robot/Body/PlayerBody.gd" type="Script" id=8]
 
-[sub_resource type="Animation" id=1]
-resource_name = "run"
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
 length = 0.3
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("player-body/roda:frame")
+tracks/0/path = NodePath("roda:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 0 ]
+"values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("player-body:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "run"
+length = 0.6
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("roda:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 0, 1, 2, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("player-body:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 15.0, 15.0 ]
 }
 
 [node name="PlayerBody" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "run"
+anims/idle = SubResource( 2 )
 anims/run = SubResource( 1 )
 
+[node name="roda" type="Sprite" parent="."]
+show_behind_parent = true
+scale = Vector2( 6, 6 )
+texture = ExtResource( 6 )
+hframes = 3
+
 [node name="player-body" type="Sprite" parent="."]
-position = Vector2( 0, -30 )
+position = Vector2( -22, 0 )
+rotation = 0.261799
 texture = ExtResource( 2 )
+offset = Vector2( 22, -120 )
 region_enabled = true
 region_rect = Rect2( 20, 139, 193, 85 )
 
+[node name="player-well-holder2" type="Sprite" parent="player-body"]
+show_behind_parent = true
+position = Vector2( 72, 1.25889e-05 )
+z_index = -1
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 42, 291, 64, 54 )
+
+[node name="player-coil" type="Sprite" parent="player-body/player-well-holder2"]
+show_behind_parent = true
+position = Vector2( 0, -55 )
+z_index = -1
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 51, 205, 48, 94 )
+
 [node name="player-head" type="Sprite" parent="player-body"]
-position = Vector2( -5.44836, -94.8622 )
+position = Vector2( 6, -157 )
 texture = ExtResource( 1 )
+offset = Vector2( 10, -58 )
 region_enabled = true
 region_rect = Rect2( 53, 28, 148, 117 )
 
 [node name="player-eye" type="Sprite" parent="player-body/player-head"]
-position = Vector2( -2.089, -12.6482 )
+position = Vector2( 13.911, -68.6482 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 114, 58, 28, 30 )
 
 [node name="player-cannon" type="Sprite" parent="player-body"]
-position = Vector2( -65.8696, -15.4413 )
+position = Vector2( -61.8696, -111.441 )
 texture = ExtResource( 7 )
+offset = Vector2( 20, 0 )
 region_enabled = true
 region_rect = Rect2( 31, 155, 51, 48 )
 
-[node name="roda" type="Sprite" parent="player-body"]
-show_behind_parent = true
-position = Vector2( 0, 120 )
-scale = Vector2( 6, 6 )
-texture = ExtResource( 6 )
-hframes = 3
-
-[node name="player-coil" type="Sprite" parent="player-body"]
-position = Vector2( -18.2201, 64.9601 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 51, 205, 48, 94 )
-
-[node name="player-well-holder" type="Sprite" parent="player-body/player-coil"]
-position = Vector2( -0.472137, 55.7258 )
+[node name="player-well-holder" type="Sprite" parent="player-body"]
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 42, 291, 64, 54 )
+
+[node name="player-coil" type="Sprite" parent="player-body/player-well-holder"]
+show_behind_parent = true
+position = Vector2( 0, -55 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 51, 205, 48, 94 )
