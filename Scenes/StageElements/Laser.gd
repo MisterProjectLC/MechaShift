@@ -3,7 +3,16 @@ extends Node2D
 var t = 0
 
 func _ready():
+	$EmitterB.position.y = 0
 	$EmitterA/Laser/CollisionShape2D.get_shape().extents = Vector2(($EmitterB.position.x - $EmitterA.position.x)/2, 24)
+	
+	$EmitterA/Laser/Sprite.region_enabled = true
+	$EmitterA/Laser/Sprite.region_rect.end.x = ($EmitterB.position.x - $EmitterA.position.x)
+	$EmitterA/Laser/Sprite.region_rect.end.y = 64
+	$EmitterA/Laser/Sprite.position.x = ($EmitterB.position.x - $EmitterA.position.x)/2
+	
+	$Timer.wait_time = 2
+	$Deactivate.wait_time = 0.5
 
 func _process(delta):
 	t += delta
@@ -24,6 +33,7 @@ func _on_Deactivate_timeout():
 
 func _on_Laser_body_entered(body):
 	if body.is_in_group("Player"):
+		$sfx_hit.play()
 		# cursed but gets the job the done. It's a jam, after all
 		body.get_parent().increase_cooldown(Global.HOOK)
 		body.get_parent().increase_cooldown(Global.ROCKET)
@@ -31,3 +41,5 @@ func _on_Laser_body_entered(body):
 		body.get_parent().increase_cooldown(Global.ANTI)
 		body.get_parent().increase_cooldown(Global.TELEPORT)
 		body.get_parent().increase_cooldown(Global.CHARGE)
+	elif body.is_in_group("Enemy"):
+		body.get_parent().explode()

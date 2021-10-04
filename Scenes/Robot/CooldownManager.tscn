@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://Assets/Sounds/vfx_mechashift_not_woke.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Sounds/vfx_mechashift_woke_v2.mp3" type="AudioStream" id=2]
 [ext_resource path="res://Scenes/Robot/CooldownManager.gd" type="Script" id=3]
 
 [node name="CooldownManager" type="Node2D"]
@@ -8,5 +10,18 @@ script = ExtResource( 3 )
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 0.25
 autostart = true
+
+[node name="sfx_cd_on" type="AudioStreamPlayer" parent="." groups=[
+"SFX",
+]]
+stream = ExtResource( 2 )
+volume_db = -5.0
+
+[node name="sfx_cd_off" type="AudioStreamPlayer" parent="." groups=[
+"SFX",
+]]
+stream = ExtResource( 1 )
+volume_db = -5.0
+pitch_scale = 1.4
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]

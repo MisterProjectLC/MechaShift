@@ -26,6 +26,7 @@ func _on_CooldownTimer_timeout():
 	for i in cooldowns.keys():
 		cooldowns[i][0] -= 1
 		if cooldowns[i][0] <= min_value:
+			if cooldowns[i][1]: $sfx_cd_on.play()
 			cooldowns[i][0] = min_value
 			cooldowns[i][1] = false
 		update_cooldown(i)
@@ -37,4 +38,5 @@ func update_cooldown(type):
 
 
 func get_overload(type):
+	if cooldowns[type][1]: $sfx_cd_off.play()
 	return cooldowns[type][1]

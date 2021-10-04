@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/vfx_mechashift_not_woke.mp3-912b29227b136d56f5e3a1ac5cc10bf7.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/vfx_mechashift_not_woke.mp3"
+dest_files=[ "res://.import/vfx_mechashift_not_woke.mp3-912b29227b136d56f5e3a1ac5cc10bf7.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

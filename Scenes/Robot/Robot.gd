@@ -224,6 +224,7 @@ func increase_cooldown(type):
 
 
 func _on_CooldownManager_overloaded(type):
+	$sfx_overload.play()
 	if type == Global.BOUNCE:
 		set_bouncy(false)
 	elif type == Global.HOOK:
@@ -239,3 +240,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 func _on_Timer_timeout():
 	if _bouncy:
 		increase_cooldown(Global.BOUNCE)
+
+
+func set_left_limit(limit):
+	$Wheel/Camera2D.limit_left = limit
+
+func set_right_limit(limit):
+	$Wheel/Camera2D.limit_right = limit

@@ -1,11 +1,13 @@
 extends Node2D
 
 var time = 0
+var expecting_transition = false
 
 var stages = [
 			{"scene":preload("res://Scenes/Stages/Stage0.tscn")},
 			{"scene":preload("res://Scenes/Stages/Stage1.tscn")},
-			{"scene":preload("res://Scenes/Stages/Stage2.tscn")}
+			{"scene":preload("res://Scenes/Stages/Stage2.tscn")},
+			{"scene":preload("res://Scenes/Stages/Stage3.tscn")}
 			]
 
 func _ready():
@@ -16,9 +18,20 @@ func _ready():
 	open_scene()
 
 
+func _process(delta):
+	if Input.is_action_pressed("reload"):
+		Global.should_advance_stage = true
+		run_transition()
+
+
 func _on_Timer_timeout():
 	time += 1
 	$CanvasLayer/UI.set_timer(time)
+
+
+func set_night():
+	$BackgroundCanvas/TextureRect.texture = preload("res://Assets/Art/Misc/Fundo2.png")
+	$BackgroundCanvas/TextureRect2.modulate = Color(1, 1, 1, 0.5)
 
 
 func open_scene():
@@ -36,12 +49,12 @@ func stage_ended():
 	if Global.current_stage >= len(stages):
 		$AnimationPlayer.play("RollCredits")
 	else:
-		Transitions.play("CloseFromLeft")
+		run_transition()
 
 
 func transition_finished(anim_name):
-	if anim_name == "CloseFromLeft" and visible:
-		print_debug(Global.should_advance_stage)
+	if anim_name == "CloseFromLeft" and visible and expecting_transition:
+		expecting_transition = false
 		if Global.should_advance_stage:
 			Global.should_advance_stage = false
 			get_tree().reload_current_scene()
@@ -57,4 +70,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func _on_EndStage_next_pressed():
+	run_transition()
+
+
+func run_transition():
+	expecting_transition = true
 	Transitions.play("CloseFromLeft")

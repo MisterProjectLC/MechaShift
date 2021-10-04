@@ -136,6 +136,7 @@ autostart = true
 pause_mode = 2
 anims/RollCredits = SubResource( 1 )
 
+[connection signal="overloaded" from="CooldownManager" to="Robot" method="_on_CooldownManager_overloaded"]
 [connection signal="next_pressed" from="CanvasLayer/EndStage" to="." method="_on_EndStage_next_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
